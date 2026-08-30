@@ -559,7 +559,8 @@ Object.keys(imageData).sort().forEach(folder => {
 
         imageData[folder].forEach((file, index) => {
             const img = document.createElement("img");
-            img.src = `${folder}/${file}`;
+            // Points to the liveries folder path
+            img.src = `liveries/${folder}/${file}`;
             img.loading = "lazy";
 
             currentImages.push(img.src);
