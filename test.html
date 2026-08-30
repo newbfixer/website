@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Image Browser</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    margin:20px;
+    background:#111;
+    color:#fff;
+}
+
+select{
+    padding:10px;
+    font-size:16px;
+    min-width:300px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:8px;
+}
+</style>
+</head>
+<body>
+
+<h2>Vehicle Gallery</h2>
+
+<select id="folderSelect">
+    <option value="">Select Folder</option>
+</select>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+
+const select = document.getElementById("folderSelect");
+const gallery = document.getElementById("gallery");
+
+async function loadFolders() {
+
+    const response = await fetch("folder_list.txt");
+    const text = await response.text();
+
+    const folders = text
+        .split(/\r?\n/)
+        .map(f => f.trim())
+        .filter(f => f.length);
+
+    folders.forEach(folder => {
+
+        const option = document.createElement("option");
+
+        option.value = folder;
+        option.textContent = folder.replaceAll("_"," ");
+
+        select.appendChild(option);
+    });
+}
+
+async function loadImages(folder) {
+
+    gallery.innerHTML = "";
+
+    try {
+
+        const response = await fetch(folder + "/");
+        const html = await response.text();
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html,"text/html");
+
+        const links = [...doc.querySelectorAll("a")];
+
+        const images = links
+            .map(a => a.getAttribute("href"))
+            .filter(file =>
+                /\.(jpg|jpeg|png|gif|webp)$/i.test(file)
+            );
+
+        images.forEach(file => {
+
+            const img = document.createElement("img");
+
+            img.src = `${folder}/${file}`;
+
+            gallery.appendChild(img);
+        });
+
+    } catch(err) {
+
+        gallery.innerHTML =
+            "<p>Unable to read folder contents.</p>";
+
+        console.error(err);
+    }
+}
+
+select.addEventListener("change", () => {
+
+    if(select.value){
+        loadImages(select.value);
+    }else{
+        gallery.innerHTML = "";
+    }
+});
+
+loadFolders();
+
+</script>
+
+</body>
+</html>
