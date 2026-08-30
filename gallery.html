@@ -167,22 +167,48 @@ h1 {
     right: 30px;
 }
 
+header h1 {
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
       header h1 span.newb { color: var(--accent-blue); }
         header h1 span.fixer { color: var(--accent-orange); }
         a{color:#ffffff;
         	text-decoration:none;}
 
-        header {
+       header {
             background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
             border-bottom: 2px solid var(--border-color);
-            padding: 0px 0px 0px 0px;
+            padding: 0px 0px 10px 0px;
             text-align: center;
-            margin-bottom:20px;
-            padding-bottom:20px;
+            margin-bottom:16px;
         }
 
         .logo-container {
-            margin-bottom: 5px;
+            margin-bottom: 1.5rem;
+        }
+         /* Navigation / Back Button */
+        .nav-back {
+            display: inline-block;
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 2rem;
+        }
+
+        .nav-back:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-2px);
         }
 </style>
 </head>
@@ -197,7 +223,7 @@ h1 {
         <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">
         <img src="images/overtake.png" alt="overtake Logo" width="230"></a>
     </header>
-
+<a href="index.html" class="nav-back">Back</a>
 
 <!-- Vehicle Button Controls replacing dropdown -->
 <div class="controls" id="folderButtonsContainer"></div>

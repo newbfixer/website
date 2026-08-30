@@ -133,6 +133,7 @@
 
         .gallery-image-placeholder {
             height: 180px;
+            width:180px;
             background-color: #1a1f2c;
             display: flex;
             align-items: center;
@@ -304,20 +305,184 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+
+        /* Customer Reviews Section */
+        .reviews-section {
+            position: relative;
+        }
+
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(249, 115, 22, 0.04));
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .reviews-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .reviews-stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .reviews-rating strong {
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .reviews-count {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            position: relative;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-card::before {
+            content: "“";
+            position: absolute;
+            top: 0.45rem;
+            right: 1rem;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: rgba(56, 189, 248, 0.12);
+            font-family: Georgia, serif;
+        }
+
+        .review-card-stars {
+            color: #fbbf24;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-text {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.9rem;
+        }
+
+        .review-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .review-author-name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .review-author-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .reviews-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .review-action-btn {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: #fff;
+            padding: 0.7rem 1.25rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-orange);
+            transition: all 0.2s ease;
+        }
+
+        .review-action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .review-action-btn.secondary {
+            background-color: transparent;
+            border-color: var(--border-color);
+        }
+
+        .review-action-btn.secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        @media (max-width: 850px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-summary {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130">
+        <div>
+           <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
         </div>
         <h1><span class="newb">Newb</span><span class="fixer">Fixer</span> Liveries</h1>
         <p>Assetto Corsa Competizione Custom Liveries, Overlays & Recreations</p><br>
-        
-         <div class="logo-container">
-         	<a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Also Available at<br>
-        <img src="images/overtake.png" alt="overtake Logo" width="230"></a></div>
+        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">
+        <img src="images/overtake.png" alt="overtake Logo" width="230"></a>
     </header>
 
     <div class="container">
@@ -347,6 +512,63 @@
                         <p style="color: var(--text-muted); font-size: 0.85rem;">In-game Base with Custom Branding</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+
+        <section class="reviews-section">
+            <h2 class="section-title">Customer Reviews</h2>
+
+    
+
+            <div class="reviews-grid">
+
+                <article class="review-card">
+                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-text">
+                        “Amazing! All my requests where fulfilled and I was pleased by the results.”
+                    </p>
+                    <div class="review-author">
+                        <div class="review-avatar">C</div>
+                        <div>
+                            <div class="review-author-name">Customer Review</div>
+                            <div class="review-author-label">Verified customer feedback</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-text">
+                        “Great communication and an awesome reproduction of the real car. Really happy with the result.”
+                    </p>
+                    <div class="review-author">
+                        <div class="review-avatar">C</div>
+                        <div>
+                            <div class="review-author-name">Customer Review</div>
+                            <div class="review-author-label">Verified customer feedback</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="review-text">
+                        “Excellent attention to detail and a brilliant finished livery. Would definitely order another.”
+                    </p>
+                    <div class="review-author">
+                        <div class="review-avatar">C</div>
+                        <div>
+                            <div class="review-author-name">Customer Review</div>
+                            <div class="review-author-label">Verified customer feedback</div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="reviews-actions">
+                <a href="reviews.html" class="review-action-btn">View All Reviews</a>
             </div>
         </section>
 
