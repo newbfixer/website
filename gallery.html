@@ -165,7 +165,7 @@ h1 {
 <h1>NewbFixer Livery Gallery</h1>
 
 <div class="controls" id="folderButtonsContainer">
-    <p style="color: var(--text-muted); text-align: center; width: 100%;">Loading categories...</p>
+    <p style="color: var(--text-muted); text-align: center; width: 100%;">Reading liveries folders...</p>
 </div>
 
 <div class="gallery-container">
@@ -183,42 +183,6 @@ h1 {
 </div>
 
 <script>
-/* 
-  If automatic server directory indexing is blocked on Vercel, 
-  simply list your exact folder names here. The script will automatically 
-  scan each folder for your .webp / .jpg images!
-*/
-const manualFolderFallback = [
-    "AMR_V8_Vantage_GT3_2019",
-    "Audi_R8LMS_GT2_2021",
-    "Audi_R8_LMS_Evo_II_2022",
-    "Bentley_Continental_GT3_2018",
-    "BMW_M4_GT3_2022",
-    "Chevrolet_Camaro_GT4_R_2017",
-    "Emily_Frey_Jaguar_G3_2012",
-    "Ferrari_296_GT3_2023",
-    "Ferrari_488_GT3_Evo_2020",
-    "Ford_Mustang_GT3_2024",
-    "Ginetta_G55_GT4_2012",
-    "Honda_NSX_GT3_Evo_2019",
-    "KTM_XBOW_GT2_2021",
-    "KTM_XBOW_GT4_2016",
-    "Lamborghini_Huracan_Evo2_2023",
-    "Lamborghini_Huracan_Evo_2019",
-    "Lexus_RC_F_GT3_2016",
-    "Maserati_GT2_2023",
-    "McLaren_720s_GT3_2019",
-    "McLaren_720s_GT3_Evo_2023",
-    "Mercedes_AMG_GT2_2023",
-    "Mercedes_AMG_GT3_2020",
-    "Mercedes_AMG_GT4_2016",
-    "Nissan_GT-R_Nismo_GT3_2018",
-    "Porsche_991II_GT2_RS_CS_Evo_2023",
-    "Porsche_991II_GT3_R_2019",
-    "Porsche_992_GT3_Cup_2021",
-    "Porsche_992_GT3_R_2023"
-];
-
 const buttonContainer = document.getElementById("folderButtonsContainer");
 const gallery = document.getElementById("gallery");
 const title = document.getElementById("folderTitle");
@@ -261,86 +225,67 @@ function prevImage() {
     showImage(currentIndex);
 }
 
-// Automatically scan folder paths for images (supports both .webp and .jpg)
+// Automatically scan the specific vehicle subfolder and capture whatever image filenames exist inside
 async function loadFolderImages(folderName) {
     gallery.innerHTML = "";
     title.textContent = folderName.replaceAll("_", " ");
     currentImages = [];
 
-    let imageFound = false;
+    try {
+        const response = await fetch(`liveries/${folderName}/`);
+        if (!response.ok) throw new Error("Could not read folder listing");
+        const htmlText = await response.text();
+        
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        const links = doc.querySelectorAll('a');
+        
+        let imageFiles = [];
+        links.forEach(link => {
+            let href = link.getAttribute('href');
+            if (href) {
+                href = href.split('/').pop();
+                // Match image files dynamically regardless of naming convention (webp, jpg, png, etc.)
+                const lower = href.toLowerCase();
+                if (lower.endsWith('.webp') || lower.endsWith('.jpg') || lower.endsWith('.jpeg') || lower.endsWith('.png')) {
+                    const imageName = decodeURIComponent(href);
+                    if (!imageFiles.includes(imageName)) {
+                        imageFiles.push(imageName);
+                    }
+                }
+            }
+        });
 
-    for (let i = 1; i <= 60; i++) {
-        // Test webp first, then fallback to checking standard filename variations if needed
-        const webpPath = `liveries/${folderName}/20260606${String(i).padStart(6, '0')}_1.jpg`; // handles timestamp naming pattern if used
-        const standardPath = `liveries/${folderName}/${i}.webp`;
-        const altPath = `liveries/${folderName}/${i}.jpg`;
-
-        // Let's check a dynamic sequence 1 to 60 or pattern match
-        const sequencePath = `liveries/${folderName}/${i}.webp`;
-        const sequenceAlt = `liveries/${folderName}/${i}.jpg`;
-
-        let validPath = null;
-        if (await checkFileExists(sequencePath)) {
-            validPath = sequencePath;
-        } else if (await checkFileExists(sequenceAlt)) {
-            validPath = sequenceAlt;
-        } else {
-            // Check if your specific naming format exists (e.g. index-based check)
-            // We can also test if it matches arbitrary names by probing 
+        if (imageFiles.length === 0) {
+            gallery.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align:center;">No images found inside <b>liveries/${folderName}/</b></p>`;
+            return;
         }
 
-        if (validPath) {
-            imageFound = true;
-            currentImages.push(validPath);
+        imageFiles.sort().forEach(file => {
+            const imagePath = `liveries/${folderName}/${file}`;
+            currentImages.push(imagePath);
 
             const img = document.createElement("img");
-            img.src = validPath;
+            img.src = imagePath;
             img.loading = "lazy";
             
             const capturedIndex = currentImages.length - 1;
             img.addEventListener("click", () => openLightbox(capturedIndex));
             gallery.appendChild(img);
-        }
-    }
-
-    if (!imageFound) {
-        // Fallback: If sequential numbers aren't found, try a broader check or display helper message
-        gallery.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align:center;">Make sure images inside <b>liveries/${folderName}/</b> are named sequentially like <b>1.webp</b>, <b>2.webp</b> (or .jpg).</p>`;
-    }
-}
-
-function checkFileExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
-
-function buildUI(folders) {
-    buttonContainer.innerHTML = "";
-    folders.sort().forEach(folder => {
-        const btn = document.createElement("button");
-        btn.className = "folder-btn";
-        btn.textContent = folder.replaceAll("_", " ");
-        
-        btn.addEventListener("click", () => {
-            document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            loadFolderImages(folder);
         });
 
-        buttonContainer.appendChild(btn);
-    });
+    } catch (error) {
+        gallery.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align:center;">Error loading folder files. Please ensure directory listing is enabled on your host.</p>`;
+    }
 }
 
-// Attempt to read directory listing automatically, otherwise use the array fallback seamlessly
+// Automatically scan root "liveries/" folder to build buttons dynamically
 async function initGallery() {
     try {
         const response = await fetch('liveries/');
-        if (!response.ok) throw new Error();
+        if (!response.ok) throw new Error("Could not read liveries directory");
         const htmlText = await response.text();
+        
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlText, 'text/html');
         const links = doc.querySelectorAll('a');
@@ -348,21 +293,39 @@ async function initGallery() {
         let folders = [];
         links.forEach(link => {
             let href = link.getAttribute('href');
-            href = href ? href.replace(/\/$/, "").split('/').pop() : "";
-            if (href && href !== "." && href !== ".." && !href.includes("?")) {
-                const folderName = decodeURIComponent(href);
-                if (!folders.includes(folderName)) folders.push(folderName);
+            if (href) {
+                href = href.replace(/\/$/, "").split('/').pop();
+                if (href && href !== "." && href !== ".." && !href.includes("?") && !href.includes(".")) {
+                    const folderName = decodeURIComponent(href);
+                    if (!folders.includes(folderName)) {
+                        folders.push(folderName);
+                    }
+                }
             }
         });
 
-        if (folders.length > 0) {
-            buildUI(folders);
-        } else {
-            throw new Error();
+        if (folders.length === 0) {
+            buttonContainer.innerHTML = `<p style="color: var(--text-muted);">No subfolders found inside the <b>liveries/</b> directory.</p>`;
+            return;
         }
+
+        buttonContainer.innerHTML = "";
+        folders.sort().forEach(folder => {
+            const btn = document.createElement("button");
+            btn.className = "folder-btn";
+            btn.textContent = folder.replaceAll("_", " ");
+            
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                loadFolderImages(folder);
+            });
+
+            buttonContainer.appendChild(btn);
+        });
+
     } catch (e) {
-        // Fallback kicks in smoothly if Vercel blocks directory indexing
-        buildUI(manualFolderFallback);
+        buttonContainer.innerHTML = `<p style="color: var(--text-muted); text-align:center;">Directory listing is disabled. Enable directory listing in your host configuration to read folders automatically.</p>`;
     }
 }
 
