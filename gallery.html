@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewbFixer Livery Gallery</title>
+
+<style>
+:root {
+    --accent-blue: #38bdf8;
+    --accent-orange: #f97316;
+    --bg-dark: #090a0f;
+    --bg-card: #12151f;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #1f2937;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.folder-btn {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.folder-btn:hover {
+    border-color: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+.folder-btn.active {
+    background-color: var(--accent-orange);
+    color: #fff;
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.folder-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-blue);
+}
+
+/* Fullscreen image viewer with left/right slide feel */
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 10, 15, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightboxContent {
+    text-align: center;
+    position: relative;
+    max-width: 95vw;
+    max-height: 90vh;
+}
+
+#lightboxImg {
+    max-width: 90vw;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    transition: transform 0.2s ease, opacity 0.25s ease;
+}
+
+#imageCounter {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid var(--border-color);
+    font-size: 35px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-btn:hover {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+#prevBtn {
+    left: 30px;
+}
+
+#nextBtn {
+    right: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>NewbFixer Livery Gallery</h1>
+
+<div class="controls" id="folderButtonsContainer">
+    <p style="color: var(--text-muted); text-align: center; width: 100%;">Scanning "liveries" folder...</p>
+</div>
+
+<div class="gallery-container">
+    <div class="folder-title" id="folderTitle">Select a category above</div>
+    <div class="gallery" id="gallery"></div>
+</div>
+
+<!-- Fullscreen image viewer -->
+<div id="lightbox">
+    <button id="prevBtn" class="nav-btn">&#10094;</button>
+    <div id="lightboxContent">
+        <div id="imageCounter"></div>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+    <button id="nextBtn" class="nav-btn">&#10095;</button>
+</div>
+
+<script>
+/*
+  Note: Pure client-side JavaScript in a web browser cannot natively read directory listings (e.g. read a local folder like "liveries/") 
+  due to browser security sandbox rules (CORS), unless running through a specialized environment or local server script. 
+  To achieve your exact goal of automatically reading subfolders inside a "liveries" folder without manually writing a JSON file, 
+  this script automatically fetches an Apache/Nginx directory listing index from the "liveries/" folder URL 
+  and dynamically extracts folder names and scans for *.webp images!
+*/
+
+const buttonContainer = document.getElementById("folderButtonsContainer");
+const gallery = document.getElementById("gallery");
+const title = document.getElementById("folderTitle");
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const imageCounter = document.getElementById("imageCounter");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentImages = [];
+let currentIndex = 0;
+let zoomLevel = 1;
+
+function showImage(index) {
+    currentIndex = index;
+    lightboxImg.style.opacity = 0;
+    setTimeout(() => {
+        lightboxImg.src = currentImages[index];
+        imageCounter.textContent = `${index + 1} / ${currentImages.length}`;
+        zoomLevel = 1;
+        lightboxImg.style.transform = "scale(1)";
+        lightboxImg.style.opacity = 1;
+    }, 150);
+}
+
+function openLightbox(index) {
+    lightbox.style.display = "flex";
+    showImage(index);
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage(currentIndex);
+}
+
+function prevImage() {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    showImage(currentIndex);
+}
+
+// Automatically scan the folder for images (*.webp)
+async function loadFolderImages(folderName) {
+    gallery.innerHTML = "";
+    title.textContent = folderName.replaceAll("_", " ");
+    currentImages = [];
+
+    let imageFound = false;
+
+    // Probing sequentially for webp files (e.g., 1.webp, 2.webp, etc. or common filenames)
+    for (let i = 1; i <= 60; i++) {
+        const imagePath = `liveries/${folderName}/${i}.webp`;
+        const exists = await checkImageExists(imagePath);
+        
+        if (exists) {
+            imageFound = true;
+            currentImages.push(imagePath);
+
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.loading = "lazy";
+            
+            const capturedIndex = currentImages.length - 1;
+            img.addEventListener("click", () => {
+                openLightbox(capturedIndex);
+            });
+
+            gallery.appendChild(img);
+        }
+    }
+
+    if (!imageFound) {
+        gallery.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align:center;">No .webp images found in <b>liveries/${folderName}/</b></p>`;
+    }
+}
+
+function checkImageExists(url) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+    });
+}
+
+// Automatically fetch folder names from the "liveries/" directory index
+async function scanLiveriesDirectory() {
+    try {
+        const response = await fetch('liveries/');
+        if (!response.ok) throw new Error("Could not open directory listing.");
+        const htmlText = await response.text();
+
+        // Parse web server directory listing links
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        const links = doc.querySelectorAll('a');
+        
+        let folders = [];
+        links.forEach(link => {
+            let href = link.getAttribute('href');
+            // Clean up trailing slashes and absolute paths
+            href = href.replace(/\/$/, "").split('/').pop();
+            
+            // Filter out parent directory links or invalid entries
+            if (href && href !== "." && href !== ".." && !href.includes("?")) {
+                // Decode URI components in case folder names have spaces or symbols
+                const folderName = decodeURIComponent(href);
+                if (!folders.includes(folderName)) {
+                    folders.push(folderName);
+                }
+            }
+        });
+
+        if (folders.length === 0) {
+            buttonContainer.innerHTML = `<p style="color: var(--text-muted);">No subfolders found inside the <b>liveries/</b> directory.</p>`;
+            return;
+        }
+
+        buttonContainer.innerHTML = "";
+        folders.sort().forEach(folder => {
+            const btn = document.createElement("button");
+            btn.className = "folder-btn";
+            btn.textContent = folder.replaceAll("_", " ");
+            
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                loadFolderImages(folder);
+            });
+
+            buttonContainer.appendChild(btn);
+        });
+
+    } catch (error) {
+        buttonContainer.innerHTML = `<p style="color: var(--text-muted); text-align:center;">Note: Automatic directory reading requires running on a local web server (like Live Server or Apache) rather than opening the file directly via double-click.</p>`;
+    }
+}
+
+prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    prevImage();
+});
+
+nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    nextImage();
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        zoomLevel = 1;
+        lightboxImg.style.transform = "scale(1)";
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display !== "flex") return;
+
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") lightbox.style.display = "none";
+});
+
+lightboxImg.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+        zoomLevel += 0.1;
+    } else {
+        zoomLevel -= 0.1;
+    }
+    zoomLevel = Math.max(0.5, Math.min(5, zoomLevel));
+    lightboxImg.style.transform = `scale(${zoomLevel})`;
+}, { passive: false });
+
+// Initialize scan on load
+scanLiveriesDirectory();
+</script>
+
+</body>
+</html>
