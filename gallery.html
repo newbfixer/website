@@ -30,8 +30,16 @@ h1 {
     letter-spacing: 2px;
     margin-bottom: 10px;
     color: #fff;
+    
 }
-
+h2 {
+            font-size: 22px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--accent-orange);
+            padding-left: 1rem;
+        }
 /* Button Controls Container */
 .controls {
     display: flex;
@@ -179,6 +187,15 @@ header h1 {
         header h1 span.fixer { color: var(--accent-orange); }
         a{color:#ffffff;
         	text-decoration:none;}
+        	
+           hr {
+				    display: block;
+				    height: 1px;
+				    border: 0;
+				    border-top: 1px solid #1f2937;
+				    margin: 0px 0px 25px 0px;
+				    padding: 0;
+			}
 
        header {
             background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
@@ -213,6 +230,10 @@ header h1 {
 </style>
 </head>
 <body>
+	<script src="team.js"></script>
+	<script src="sets.js"></script>
+	<script src="custom.js"></script>
+	<script src="overtake.js"></script>
 	
 	<header>
         <div>
@@ -226,15 +247,44 @@ header h1 {
     </header>
 
     <div style="text-align:center; padding:0px 0px 0px 0px;"><a href="index.html" class="nav-back">Back</a></div>
+    
+
 
 
 <!-- Vehicle Button Controls replacing dropdown -->
+<h2>Livery Showcase</h2>
 <div class="controls" id="folderButtonsContainer"></div>
+<div class="folder-title" id="folderTitle"></div>
+<div class="gallery" id="gallerycustom"></div><br>
+<hr>
+<h2>Team Liveries</h2>
+<div class="controls" id="folderButtonsContainer3"></div>
+<div class="folder-title" id="folderTitle3"></div>
+<div class="gallery" id="galleryteam"></div><br>
+<hr>
+<h2>Free Overtake Liveries</h2>
+<div class="controls" id="folderButtonsContainer4"></div>
+<div class="folder-title" id="folderTitle4"></div>
+<div class="gallery" id="galleryovertake"></div>
+<hr>
+<h2>Free Overtake Liveries (Sets)</h2>
+<div class="controls" id="folderButtonsContainer2"></div>
+<div class="folder-title" id="folderTitle2"></div>
+<div class="gallery" id="gallerysets"></div><br>
+<hr>
+
+<!-- <h2>Team Custom Liveries</h2>
+<div class="controls" id="setsButtonsContainer"></div>
+<div class="gallery" id="galleryteam"></div>
+
+<h2>Free Overtake Liveries</h2>
+<div class="controls" id="setsButtonsContainer"></div>
+<div class="gallery" id="galleryovertake"></div>
 
 <div class="gallery-container">
     <div class="folder-title" id="folderTitle">Select a vehicle above</div>
-    <div class="gallery" id="gallery"></div>
-</div>
+    
+</div> -->
 
 <!-- Fullscreen image viewer -->
 <div id="lightbox">
@@ -246,434 +296,23 @@ header h1 {
     <button id="nextBtn" class="nav-btn">&#10095;</button>
 </div>
 
-<script>
-	const setsData= {
-  "Sets_Cheetos": [
-    "20260606033304_1.jpg",
-    "20260606033529_1.jpg",
-    "20260606034835_1.jpg",
-    "20260606035645_1.jpg"
-  ],
-  "Sets_Corsair": [
-    "20260606033543_1.jpg",
-    "20260606034227_1.jpg"
-  ],
-  "Sets_Fanta": [
-    "20260606033054_1.jpg",
-    "20260606033318_1.jpg",
-    "20260606033616_1.jpg",
-    "20260606034335_1.jpg",
-    "20260606034437_1.jpg",
-    "20260606035450_1.jpg",
-    "20260606035601_1.jpg",
-    "20260606035655_1.jpg"
-  ],
-  "Sets_Gatorade": [
-    "20260606033621_1.jpg",
-    "20260606034855_1.jpg"
-  ],
-  "Sets_MonsterEnergy": [
-    "20260606032953_1.jpg",
-    "20260606033106_1.jpg",
-    "20260606033202_1.jpg",
-    "20260606033340_1.jpg",
-    "20260606034136_1.jpg",
-    "20260606034349_1.jpg",
-    "20260606034443_1.jpg",
-    "20260606034746_1.jpg",
-    "20260606035350_1.jpg",
-    "20260606035531_1.jpg",
-    "20260606035613_1.jpg"
-  ],
-  "Sets_MonsterNitro": [
-    "20260606033719_1.jpg",
-    "20260606034140_1.jpg",
-    "20260606034554_1.jpg",
-    "20260606035051_1.jpg",
-    "20260606035855_1.jpg"
-  ],
-  "Sets_MountainDew": [
-    "20260606033343_1.jpg",
-    "20260606033723_1.jpg",
-    "20260606034558_1.jpg",
-    "20260606035103_1.jpg"
-  ],
-  "Sets_NvidiaRTX": [
-    "20260606032732_1.jpg",
-    "20260606032859_1.jpg",
-    "20260606033347_1.jpg",
-    "20260606033732_1.jpg",
-    "20260606035113_1.jpg",
-    "20260606035354_1.jpg",
-    "20260606035859_1.jpg"
-  ],
-  "Sets_OnlyFans": [
-    "20260606033111_1.jpg",
-    "20260606033742_1.jpg",
-    "20260606034601_1.jpg",
-    "20260606035117_1.jpg"
-  ],
-  "Sets_Sprite": [
-    "20260606033401_1.jpg",
-    "20260606033947_1.jpg",
-    "20260606034621_1.jpg",
-    "20260606035232_1.jpg",
-    "20260606035915_1.jpg"
-  ],
-  "Sets_Tango": [
-    "20260606033952_1.jpg",
-    "20260606034625_1.jpg",
-    "20260606035251_1.jpg",
-    "20260606035921_1.jpg"
-  ],
-  "Team_Cryonics_Racing": [
-    "20260606204834_1.jpg",
-    "20260606204901_1.jpg",
-    "20260606205225_1.jpg",
-    "20260606210140_1.jpg",
-    "20260606210719_1.jpg",
-    "20260606211018_1.jpg",
-    "20260606215222_1.jpg"
-  ],
-  "Team_Gazelle_Motorsport": [
-    "20260606205005_1.jpg",
-    "20260606205240_1.jpg",
-    "20260606205535_1.jpg",
-    "20260606210034_1.jpg",
-    "20260606210147_1.jpg",
-    "20260606210232_1.jpg",
-    "20260606210628_1.jpg",
-    "20260606210725_1.jpg",
-    "20260606214649_1.jpg",
-    "20260606215232_1.jpg"
-  ],
-  "Team_Restless_Racing": [
-    "20260606205313_1.jpg",
-    "20260606210002_1.jpg",
-    "20260606210010_1.jpg",
-    "20260606210554_1.jpg",
-    "20260606214809_1.jpg"
-  ],
-  "Team_WG_Motorsport": [
-    "20260606205328_1.jpg",
-    "20260606205812_1.jpg",
-    "20260606210225_1.jpg",
-    "20260606210611_1.jpg",
-    "20260606210845_1.jpg",
-    "20260606214912_1.jpg"
-  ]
-  };
-  
-const imageData = {
-  "AMR_V8_Vantage_GT3_2019": [
-    "20260606205001_1.jpg",
-    "20260606205005_1.jpg",
-    "20260606205011_1.jpg",
-    "20260606205020_1.jpg",
-    "20260606205025_1.jpg",
-    "20260606205027_1.jpg"
-  ],
-  "Audi_R8LMS_GT2_2021": [
-    "20260606204834_1.jpg",
-    "20260606204837_1.jpg",
-    "20260606204841_1.jpg"
-  ],
-  "Audi_R8_LMS_Evo_II_2022": [
-    "20260606205048_1.jpg",
-    "20260606205056_1.jpg",
-    "20260606205101_1.jpg",
-    "20260606205105_1.jpg",
-    "20260606205108_1.jpg",
-    "20260606205111_1.jpg"
-  ],
-  "Bentley_Continental_GT3_2018": [
-    "20260606205142_1.jpg",
-    "20260606205148_1.jpg",
-    "20260606205151_1.jpg",
-    "20260606205154_1.jpg",
-    "20260606205156_1.jpg"
-  ],
-  "BMW_M4_GT3_2022": [
-    "20260606205207_1.jpg",
-    "20260606205210_1.jpg",
-    "20260606205214_1.jpg",
-    "20260606205218_1.jpg",
-    "20260606205221_1.jpg",
-    "20260606205225_1.jpg",
-    "20260606205229_1.jpg",
-    "20260606205232_1.jpg",
-    "20260606205236_1.jpg",
-    "20260606205240_1.jpg",
-    "20260606205250_1.jpg",
-    "20260606205254_1.jpg",
-    "20260606205259_1.jpg",
-    "20260606205302_1.jpg",
-    "20260606205306_1.jpg",
-    "20260606205309_1.jpg",
-    "20260606205313_1.jpg",
-    "20260606205319_1.jpg",
-    "20260606205324_1.jpg",
-    "20260606205328_1.jpg",
-    "20260606205331_1.jpg"
-  ],
-  "Chevrolet_Camaro_GT4_R_2017": [
-    "20260606210923_1.jpg"
-  ],
-  "Emily_Frey_Jaguar_G3_2012": [
-    "20260606205350_1.jpg"
-  ],
-  "Ferrari_296_GT3_2023": [
-    "20260606205401_1.jpg",
-    "20260606205404_1.jpg",
-    "20260606205408_1.jpg",
-    "20260606205412_1.jpg",
-    "20260606205416_1.jpg",
-    "20260606205419_1.jpg",
-    "20260606205424_1.jpg",
-    "20260606205428_1.jpg",
-    "20260606205436_1.jpg",
-    "20260606205447_1.jpg",
-    "20260606205458_1.jpg",
-    "20260606205504_1.jpg",
-    "20260606205511_1.jpg",
-    "20260606205516_1.jpg",
-    "20260606205520_1.jpg",
-    "20260606205524_1.jpg",
-    "20260606205528_1.jpg",
-    "20260606205531_1.jpg",
-    "20260606205535_1.jpg",
-    "20260606205538_1.jpg",
-    "20260606205541_1.jpg",
-    "20260606205545_1.jpg",
-    "20260606205548_1.jpg",
-    "20260606205552_1.jpg",
-    "20260606205558_1.jpg",
-    "20260606205601_1.jpg",
-    "20260606205605_1.jpg",
-    "20260606205610_1.jpg",
-    "20260606205617_1.jpg",
-    "20260606205621_1.jpg",
-    "20260606205624_1.jpg",
-    "20260606205627_1.jpg",
-    "20260606205632_1.jpg",
-    "20260606205637_1.jpg",
-    "20260606205640_1.jpg",
-    "20260606205644_1.jpg",
-    "20260606205648_1.jpg",
-    "20260606205651_1.jpg",
-    "20260606205703_1.jpg",
-    "20260606205713_1.jpg",
-    "20260606205718_1.jpg",
-    "20260606205723_1.jpg",
-    "20260606205727_1.jpg",
-    "20260606205731_1.jpg",
-    "20260606205736_1.jpg",
-    "20260606205738_1.jpg",
-    "20260606205743_1.jpg",
-    "20260606205746_1.jpg",
-    "20260606205749_1.jpg",
-    "20260606205754_1.jpg",
-    "20260606205758_1.jpg",
-    "20260606205802_1.jpg",
-    "20260606205806_1.jpg",
-    "20260606205809_1.jpg",
-    "20260606205812_1.jpg",
-    "20260606205815_1.jpg",
-    "20260606205822_1.jpg",
-    "20260606205825_1.jpg",
-    "20260606205829_1.jpg"
-  ],
-  "Ferrari_488_GT3_Evo_2020": [
-    "20260606205841_1.jpg",
-    "20260606205844_1.jpg",
-    "20260606205848_1.jpg",
-    "20260606205851_1.jpg",
-    "20260606205855_1.jpg",
-    "20260606205858_1.jpg",
-    "20260606205901_1.jpg"
-  ],
-  "Ford_Mustang_GT3_2024": [
-    "20260606205923_1.jpg",
-    "20260606205928_1.jpg",
-    "20260606205933_1.jpg",
-    "20260606205938_1.jpg",
-    "20260606205943_1.jpg",
-    "20260606205950_1.jpg",
-    "20260606205953_1.jpg",
-    "20260606205958_1.jpg",
-    "20260606210002_1.jpg",
-    "20260606210010_1.jpg",
-    "20260606210017_1.jpg"
-  ],
-  "Ginetta_G55_GT4_2012": [
-    "20260606210950_1.jpg"
-  ],
-  "Honda_NSX_GT3_Evo_2019": [
-    "20260606210027_1.jpg",
-    "20260606210031_1.jpg",
-    "20260606210034_1.jpg",
-    "20260606210038_1.jpg",
-    "20260606210041_1.jpg",
-    "20260606210045_1.jpg",
-    "20260606210048_1.jpg",
-    "20260606210052_1.jpg",
-    "20260606210055_1.jpg",
-    "20260606210059_1.jpg"
-  ],
-  "KTM_XBOW_GT2_2021": [
-    "20260606204852_1.jpg"
-  ],
-  "KTM_XBOW_GT4_2016": [
-    "20260606210958_1.jpg"
-  ],
-  "Lamborghini_Huracan_Evo2_2023": [
-    "20260606210133_1.jpg",
-    "20260606210136_1.jpg",
-    "20260606210140_1.jpg",
-    "20260606210144_1.jpg",
-    "20260606210147_1.jpg",
-    "20260606210150_1.jpg",
-    "20260606210154_1.jpg",
-    "20260606210157_1.jpg",
-    "20260606210200_1.jpg",
-    "20260606210205_1.jpg",
-    "20260606210208_1.jpg",
-    "20260606210212_1.jpg",
-    "20260606210215_1.jpg",
-    "20260606210218_1.jpg",
-    "20260606210221_1.jpg",
-    "20260606210225_1.jpg"
-  ],
-  "Lamborghini_Huracan_Evo_2019": [
-    "20260606210113_1.jpg",
-    "20260606210117_1.jpg",
-    "20260606210122_1.jpg"
-  ],
-  "Lexus_RC_F_GT3_2016": [
-    "20260606210232_1.jpg",
-    "20260606210235_1.jpg"
-  ],
-  "Maserati_GT2_2023": [
-    "20260606204901_1.jpg",
-    "20260606204909_1.jpg"
-  ],
-  "McLaren_720s_GT3_2019": [
-    "20260606210252_1.jpg",
-    "20260606210257_1.jpg",
-    "20260606210300_1.jpg"
-  ],
-  "McLaren_720s_GT3_Evo_2023": [
-    "20260606214609_1.jpg",
-    "20260606214613_1.jpg",
-    "20260606214616_1.jpg",
-    "20260606214620_1.jpg",
-    "20260606214624_1.jpg",
-    "20260606214627_1.jpg",
-    "20260606214631_1.jpg",
-    "20260606214635_1.jpg",
-    "20260606214638_1.jpg",
-    "20260606214642_1.jpg",
-    "20260606214646_1.jpg",
-    "20260606214649_1.jpg",
-    "20260606214654_1.jpg",
-    "20260606214700_1.jpg",
-    "20260606214705_1.jpg",
-    "20260606214708_1.jpg",
-    "20260606214712_1.jpg",
-    "20260606214715_1.jpg",
-    "20260606214718_1.jpg",
-    "20260606214723_1.jpg",
-    "20260606214731_1.jpg",
-    "20260606214734_1.jpg",
-    "20260606214739_1.jpg",
-    "20260606214743_1.jpg",
-    "20260606214747_1.jpg",
-    "20260606214752_1.jpg",
-    "20260606214756_1.jpg",
-    "20260606214803_1.jpg",
-    "20260606214806_1.jpg",
-    "20260606214809_1.jpg",
-    "20260606214813_1.jpg",
-    "20260606214830_1.jpg",
-    "20260606214838_1.jpg",
-    "20260606214844_1.jpg",
-    "20260606214850_1.jpg",
-    "20260606214853_1.jpg",
-    "20260606214857_1.jpg",
-    "20260606214900_1.jpg",
-    "20260606214905_1.jpg",
-    "20260606214908_1.jpg",
-    "20260606214912_1.jpg"
-  ],
-  "Mercedes_AMG_GT2_2023": [
-    "20260606204917_1.jpg",
-    "20260606204923_1.jpg",
-    "20260606204929_1.jpg"
-  ],
-  "Mercedes_AMG_GT3_2020": [
-    "20260606210540_1.jpg",
-    "20260606210544_1.jpg",
-    "20260606210548_1.jpg",
-    "20260606210551_1.jpg",
-    "20260606210554_1.jpg",
-    "20260606210559_1.jpg",
-    "20260606210603_1.jpg",
-    "20260606210606_1.jpg",
-    "20260606210611_1.jpg",
-    "20260606215222_1.jpg",
-    "20260606215228_1.jpg",
-    "20260606215232_1.jpg"
-  ],
-  "Mercedes_AMG_GT4_2016": [
-    "20260606211018_1.jpg",
-    "20260606211022_1.jpg"
-  ],
-  "Nissan_GT-R_Nismo_GT3_2018": [
-    "20260606210625_1.jpg",
-    "20260606210628_1.jpg",
-    "20260606210632_1.jpg",
-    "20260606210635_1.jpg"
-  ],
-  "Porsche_991II_GT2_RS_CS_Evo_2023": [
-    "20260606204944_1.jpg",
-    "20260606204951_1.jpg"
-  ],
-  "Porsche_991II_GT3_R_2019": [
-    "20260606210659_1.jpg",
-    "20260606210706_1.jpg",
-    "20260606210711_1.jpg"
-  ],
-  "Porsche_992_GT3_Cup_2021": [
-    "20260606211046_1.jpg"
-  ],
-  "Porsche_992_GT3_R_2023": [
-    "20260606210718_1.jpg",
-    "20260606210719_1.jpg",
-    "20260606210720_1.jpg",
-    "20260606210725_1.jpg",
-    "20260606210729_1.jpg",
-    "20260606210734_1.jpg",
-    "20260606210740_1.jpg",
-    "20260606210746_1.jpg",
-    "20260606210750_1.jpg",
-    "20260606210753_1.jpg",
-    "20260606210814_1.jpg",
-    "20260606210816_1.jpg",
-    "20260606210819_1.jpg",
-    "20260606210821_1.jpg",
-    "20260606210829_1.jpg",
-    "20260606210834_1.jpg",
-    "20260606210838_1.jpg",
-    "20260606210841_1.jpg",
-    "20260606210845_1.jpg",
-    "20260606210849_1.jpg",
-    "20260606210851_1.jpg"
-  ]
-};
 
+<script>
+
+        
 const buttonContainer = document.getElementById("folderButtonsContainer");
-const gallery = document.getElementById("gallery");
+const buttonContainer2 = document.getElementById("folderButtonsContainer2");
+const buttonContainer3 = document.getElementById("folderButtonsContainer3");
+const buttonContainer4 = document.getElementById("folderButtonsContainer4");
+const setsContainer = document.getElementById("setsButtonsContainer");
+const galleryovertake = document.getElementById("galleryovertake");
+const gallerysets = document.getElementById("gallerysets");
+const galleryteam = document.getElementById("galleryteam");
+const gallerycustom = document.getElementById("gallerycustom");
 const title = document.getElementById("folderTitle");
+const title2 = document.getElementById("folderTitle2");
+const title3 = document.getElementById("folderTitle3");
+const title4 = document.getElementById("folderTitle4");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
@@ -716,7 +355,7 @@ function prevImage() {
 }
 
 // Generate folder buttons dynamically
-Object.keys(imageData).sort().forEach(folder => {
+Object.keys(customData).sort().forEach(folder => {
     const btn = document.createElement("button");
     btn.className = "folder-btn";
     btn.textContent = folder.replaceAll("_", " ");
@@ -726,11 +365,11 @@ Object.keys(imageData).sort().forEach(folder => {
         document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        gallery.innerHTML = "";
+        gallerycustom.innerHTML = "";
         title.textContent = folder.replaceAll("_", " ");
         currentImages = [];
 
-        imageData[folder].forEach((file, index) => {
+        customData[folder].forEach((file, index) => {
             const img = document.createElement("img");
             // Points to the liveries folder path
             img.src = `liveries/${folder}/${file}`;
@@ -742,12 +381,112 @@ Object.keys(imageData).sort().forEach(folder => {
                 openLightbox(index);
             });
 
-            gallery.appendChild(img);
+            gallerycustom.appendChild(img);
         });
     });
 
     buttonContainer.appendChild(btn);
 });
+// Generate folder buttons dynamically
+Object.keys(setsData).sort().forEach(folder => {
+    const btn = document.createElement("button");
+    btn.className = "folder-btn";
+    btn.textContent = folder.replaceAll("_", " ");
+    
+    btn.addEventListener("click", () => {
+        // Update active class on buttons
+        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        gallerysets.innerHTML = "";
+        title2.textContent = folder.replaceAll("_", " ");
+        currentImages = [];
+
+        setsData[folder].forEach((file, index) => {
+            const img = document.createElement("img");
+            // Points to the liveries folder path
+            img.src = `liveries/${folder}/${file}`;
+            img.loading = "lazy";
+
+            currentImages.push(img.src);
+
+            img.addEventListener("click", () => {
+                openLightbox(index);
+            });
+
+            gallerysets.appendChild(img);
+        });
+    });
+
+    buttonContainer2.appendChild(btn);
+});
+// Generate folder buttons dynamically
+Object.keys(teamData).sort().forEach(folder => {
+    const btn = document.createElement("button");
+    btn.className = "folder-btn";
+    btn.textContent = folder.replaceAll("_", " ");
+    
+    btn.addEventListener("click", () => {
+        // Update active class on buttons
+        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        galleryteam.innerHTML = "";
+        title3.textContent = folder.replaceAll("_", " ");
+        currentImages = [];
+
+        teamData[folder].forEach((file, index) => {
+            const img = document.createElement("img");
+            // Points to the liveries folder path
+            img.src = `liveries/${folder}/${file}`;
+            img.loading = "lazy";
+
+            currentImages.push(img.src);
+
+            img.addEventListener("click", () => {
+                openLightbox(index);
+            });
+
+            galleryteam.appendChild(img);
+        });
+    });
+
+    buttonContainer3.appendChild(btn);
+});
+// Generate folder buttons dynamically
+Object.keys(overtakeData).sort().forEach(folder => {
+    const btn = document.createElement("button");
+    btn.className = "folder-btn";
+    btn.textContent = folder.replaceAll("_", " ");
+    
+    btn.addEventListener("click", () => {
+        // Update active class on buttons
+        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        galleryovertake.innerHTML = "";
+        title4.textContent = folder.replaceAll("_", " ");
+        currentImages = [];
+
+        overtakeData[folder].forEach((file, index) => {
+            const img = document.createElement("img");
+            // Points to the liveries folder path
+            img.src = `liveries/${folder}/${file}`;
+            img.loading = "lazy";
+
+            currentImages.push(img.src);
+
+            img.addEventListener("click", () => {
+                openLightbox(index);
+            });
+
+            galleryovertake.appendChild(img);
+        });
+    });
+
+    buttonContainer4.appendChild(btn);
+});
+
 
 prevBtn.addEventListener("click", (e) => {
     e.stopPropagation();
