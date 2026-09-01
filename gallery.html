@@ -16,6 +16,13 @@
     --border-color: #1f2937;
 }
 
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg-dark);
@@ -23,6 +30,12 @@ body {
     margin: 0;
     padding: 20px;
 }
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
 
 h1 {
     text-align: center;
@@ -230,11 +243,12 @@ header h1 {
 </style>
 </head>
 <body>
+	
 	<script src="team.js"></script>
 	<script src="sets.js"></script>
 	<script src="custom.js"></script>
 	<script src="overtake.js"></script>
-	
+	<div class="container">
 	<header>
         <div>
            <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
@@ -527,6 +541,6 @@ lightboxImg.addEventListener("wheel", (e) => {
     lightboxImg.style.transform = `scale(${zoomLevel})`;
 }, { passive: false });
 </script>
-
+</div>
 </body>
 </html>
