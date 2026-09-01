@@ -53,6 +53,36 @@ h2 {
             border-left: 4px solid var(--accent-orange);
             padding-left: 1rem;
         }
+        
+        /* Top Social Bar */
+        .top-social-bar {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .social-container a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .social-container a:hover {
+            color: var(--accent-orange);
+        }
+        
+        .social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width:100%;
+            text-align:center;
+        }
+        
 /* Button Controls Container */
 .controls {
     display: flex;
@@ -217,9 +247,14 @@ header h1 {
             text-align: center;
             margin-bottom:16px;
         }
+        
+         header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
 
         .logo-container {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2px;
         }
          /* Navigation / Back Button */
         .nav-back {
@@ -249,15 +284,24 @@ header h1 {
 	<script src="custom.js"></script>
 	<script src="overtake.js"></script>
 	
-	<header>
-        <div><br>
+	    <!-- Top Social Bar -->
+    <div class="top-social-bar">
+    	<div class="social-container">
+        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank">Discord</a>&nbsp;
+        <a href="https://www.youtube.com/@newbfixer" target="_blank">YouTube</a>&nbsp;
+        <a href="https://www.instagram.com/newbfixerliveries" target="_blank">Instagram</a>&nbsp;
+        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Overtake.gg</a>
+      </div>
+    </div>
+	
+    <header>
+        <div class="logo-container"><br>
            <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
         </div>
-				<h1><span class="newb">Newb</span><span class="fixer">Fixer</span></h1>
-				<p>Custom Assetto Corsa Competizione Liveries, Reproductions &amp; Overlays</p><br>
-        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">
-        Visit My<br><img src="images/overtake.png" alt="overtake Logo" width="230"></a><br><br>
-         </header>
+<h1><span class="newb">Newb</span><span class="fixer">Fixer</span></h1>
+<p>Customer Reviews for Custom Assetto Corsa Competizione Liveries</p><br>
+    </header>
+    
 <div class="container">
     <div style="text-align:center; padding:0px 0px 0px 0px;"><a href="index.html" class="nav-back">Back</a></div>
     

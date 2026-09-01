@@ -95,6 +95,8 @@
         a{color:#ffffff;
         	text-decoration:none;}
 
+        
+
         header {
             background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
             border-bottom: 2px solid var(--border-color);
@@ -130,14 +132,6 @@
 				    border-color: var(--accent-orange);
 				    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
 				}
-      /* .brand-logo {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-blue);
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        } */
 
         header h1 {
             font-size: 2.3rem;
@@ -159,6 +153,35 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
+        }
+        
+        /* Top Social Bar */
+        .top-social-bar {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .social-container a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .social-container a:hover {
+            color: var(--accent-orange);
+        }
+        
+        .social-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width:100%;
+            text-align:center;
         }
 
         section {
@@ -552,6 +575,16 @@
 </head>
 <body>
 
+    <!-- Top Social Bar -->
+    <div class="top-social-bar">
+    	<div class="social-container">
+        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank">Discord</a>&nbsp;
+        <a href="https://www.youtube.com/@newbfixer" target="_blank">YouTube</a>&nbsp;
+        <a href="https://www.instagram.com/newbfixerliveries" target="_blank">Instagram</a>&nbsp;
+        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Overtake.gg</a>
+      </div>
+    </div>
+
     <header>
         <div>
            <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
@@ -732,7 +765,7 @@
             </div>
         </section>
 
-    </div>
+  
 
    <footer>
     <p>
@@ -742,6 +775,6 @@
         Custom liveries, reproductions, overlays and sim racing artwork.
     </p>
 </footer>
-
+  </div>
 </body>
 </html>
