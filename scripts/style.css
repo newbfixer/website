@@ -176,7 +176,12 @@ a {
     letter-spacing: 1px;
     color: var(--accent-orange);
 }
-
+.head-text-blue {
+    color: var(--accent-blue);
+}
+.head-text-orange {
+    color: var(--accent-orange);
+}
 .social-nav {
     display: flex;
     gap: 24px;
@@ -255,18 +260,18 @@ a {
     font-size: clamp(3rem, 7vw, 5rem);
     font-weight: 900;
     line-height: 1.1;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     margin-bottom: 16px;
     letter-spacing: -1px;
     /* background: linear-gradient(135deg, #3ba3ff 30%, #ffffff 40%, var(--accent-orange) 50%); */
-    background: linear-gradient(90deg, #ffffff 0%);
+    /* background: linear-gradient(90deg, #ffffff 0%); */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* -webkit-text-fill-color: transparent; */
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: var(--text-muted);
+    color: var(--text-main);
     margin-bottom: 32px;
     max-width: 600px;
 }
