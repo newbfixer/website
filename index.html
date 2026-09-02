@@ -7,6 +7,10 @@
     <!-- Primary SEO -->
     <title>Custom ACC Liveries | NewbFixer</title>
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="scripts/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="NewbFixer creates custom Assetto Corsa Competizione (ACC) liveries, real-life livery reproductions, team designs, sponsor graphics and custom overlays.">
 
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -66,715 +70,205 @@
       ]
     }
     </script>
-
-    <style>
-        :root {
-            --accent-blue: #50a2ff;
-            --accent-orange: #f97316;
-            --bg-dark: #090a0f;
-            --bg-card: #12151f;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 4rem;
-        }
-        
-        a{color:#ffffff;
-        	text-decoration:none;}
-
-        
-
-        header {
-            background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
-            border-bottom: 2px solid var(--border-color);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .logo-container {
-            margin-bottom: 1.5rem;
-        }
-      
-       /* Vehicle Folder Buttons */
-				.folder-btn {
-				    background-color: var(--bg-card);
-				    color: var(--text-main);
-				    border: 1px solid var(--border-color);
-				    padding: 10px 18px;
-				    font-size: 14px;
-				    font-weight: 600;
-				    border-radius: 6px;
-				    cursor: pointer;
-				    transition: all 0.2s ease;
-				}
-
-				.folder-btn:hover {
-				    border-color: var(--accent-orange);
-				    transform: translateY(-2px);
-				}
-
-				.folder-btn.active {
-				    background-color: var(--accent-orange);
-				    color: #fff;
-				    border-color: var(--accent-orange);
-				    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
-				}
-
-        header h1 {
-            font-size: 2.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        header h1 span.newb { color: var(--accent-blue); }
-        header h1 span.fixer { color: var(--accent-orange); }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-        
-        /* Top Social Bar */
-        .top-social-bar {
-            background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0.5rem 1.5rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.2rem;
-            font-size: 0.9rem;
-        }
-
-        .social-container a {
-            color: var(--text-muted);
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .social-container a:hover {
-            color: var(--accent-orange);
-        }
-        
-        .social-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width:100%;
-            text-align:center;
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        h2.section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 4px solid var(--accent-orange);
-            padding-left: 1rem;
-        }
-
-        /* Gallery Section Styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-        }
-
-        .gallery-image-placeholder {
-            height: 180px;
-            width:180px;
-            background-color: #1a1f2c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-style: italic;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .gallery-info {
-            padding: 1.2rem;
-        }
-
-        .gallery-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        /* Pricing Grid */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .price-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            transition: border-color 0.3s ease;
-        }
-
-        .price-card:hover {
-            border-color: var(--accent-orange);
-        }
-
-        .price-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .price-tag {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-orange);
-            margin-bottom: 1rem;
-        }
-
-        .price-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .price-card ul {
-            list-style-type: none;
-            margin-top: auto;
-        }
-
-        .price-card ul li {
-            font-size: 0.85rem;
-            color: #d1d5db;
-            margin-top: 0.4rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .price-card ul li::before {
-            content: "•";
-            color: var(--accent-blue);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Inclusions Section */
-        .inclusions-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-        }
-
-        .inclusions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .inclusion-item {
-            background-color: rgba(255, 255, 255, 0.02);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-blue);
-            font-size: 0.95rem;
-        }
-
-        /* Contact & CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56, 189, 248, 0.03) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            background-color: var(--accent-orange);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            background-color: #1f2937;
-            color: #fff;
-            border: 1px solid var(--border-color);
-        }
-        
-        .btn-discord {
-            background-color: #7289da;
-            color: #fff;
-            padding: 2px 8px 4px 8px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .btn-discord:hover {
-            opacity: 0.9;
-        }
-
-        .paypal-notice {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-        }
-
-        .paypal-notice a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .paypal-notice a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Customer Reviews Section */
-        .reviews-section {
-            position: relative;
-        }
-
-        .reviews-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem 1.25rem;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(249, 115, 22, 0.04));
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        .reviews-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .reviews-stars {
-            color: #fbbf24;
-            font-size: 1.25rem;
-            letter-spacing: 2px;
-            white-space: nowrap;
-        }
-
-        .reviews-rating strong {
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .reviews-count {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .review-card {
-            position: relative;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .review-card::before {
-            content: "“";
-            position: absolute;
-            top: 0.45rem;
-            right: 1rem;
-            font-size: 3.5rem;
-            line-height: 1;
-            color: rgba(56, 189, 248, 0.12);
-            font-family: Georgia, serif;
-        }
-
-        .review-card-stars {
-            color: #fbbf24;
-            letter-spacing: 2px;
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .review-text {
-            color: #d1d5db;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.9rem;
-        }
-
-        .review-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .review-author-name {
-            color: #fff;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .review-author-label {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        .reviews-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .review-action-btn {
-            display: inline-block;
-            background-color: var(--accent-orange);
-            color: #fff;
-            padding: 0.7rem 1.25rem;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border: 1px solid var(--accent-orange);
-            transition: all 0.2s ease;
-        }
-
-        .review-action-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        .review-action-btn.secondary {
-            background-color: transparent;
-            border-color: var(--border-color);
-        }
-
-        .review-action-btn.secondary:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-        }
-
-        @media (max-width: 850px) {
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-summary {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-
-    </style>
+    
+   
 </head>
 <body>
 
-    <!-- Top Social Bar -->
-    <div class="top-social-bar">
-    	<div class="social-container">
-        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank">Discord</a>&nbsp;
-        <a href="https://www.youtube.com/@newbfixer" target="_blank">YouTube</a>&nbsp;
-        <a href="https://www.instagram.com/newbfixerliveries" target="_blank">Instagram</a>&nbsp;
-        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Overtake.gg</a>
-      </div>
-    </div>
-
-    <header>
-        <div>
-           <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo-area">
+               <span class="logo-text-blue">Newb</span><span class="logo-text-orange">Fixer</span> <span class="logo-text-white">Liveries</span>
+            </div>
+            <nav class="social-nav">
+                <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank" class="nav-link">Discord</a>
+                <a href="https://www.youtube.com/@newbfixer" target="_blank" class="nav-link">YouTube</a>
+                <a href="https://www.instagram.com/newbfixerliveries" target="_blank" class="nav-link">Instagram</a>
+                <a href="https://overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank" class="nav-link">Overtake.gg</a>
+            </nav>
         </div>
-				<h1><span class="newb">Newb</span><span class="fixer">Fixer</span></h1>
-				<p>Custom Assetto Corsa Competizione Liveries, Reproductions &amp; Overlays</p><br>
-        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">
-        <img src="images/overtake.png" alt="overtake Logo" width="230"></a><br><br>
-        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank" class="btn-discord">Join Discord</a>
     </header>
 
-    <div class="container">
-    	
-   
-<section class="intro-section">
-    <h2 class="section-title">Custom ACC Liveries</h2>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="badge">SIM RACING ARTISTRY</div>
+            <h1>NewbFixer</h1>
+            <p class="hero-subtitle">Custom Assetto Corsa Competizione Liveries, Reproductions & Overlays</p>
+            <div class="hero-cta">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#discord" class="btn btn-secondary">Join Discord</a>
+            </div>
+        </div>
+    </section>
 
-    <p style="color: var(--text-muted); font-size: 1rem; max-width: 900px; margin-bottom: 1rem;">
-        I create custom liveries for <strong>Assetto Corsa Competizione</strong>,
-        from completely original GT3 designs to accurate reproductions of real-world
-        racing liveries. Whether you need a personal race car, team livery, custom
-        sponsors, driver graphics or a full race-team design, each livery is created
-        specifically for your ACC car.
-    </p>
+    <section class="section about-section">
+        <div class="container grid-2">
+            <div class="about-text">
+                <h2>Custom ACC Liveries</h2>
+                <p>I create custom liveries for Assetto Corsa Competizione, from completely original GT3 designs to accurate reproductions of real-world racing liveries. Whether you need a personal race car, team livery, custom sponsors, driver graphics or a full race-team design, each livery is created specifically for your ACC car.</p>
+                <p class="sub-text">Choose from a custom ACC livery, a simpler custom overlay, or a real-life livery reproduction.</p>
+            </div>
+            <div class="about-highlight-box">
+                <h3>Ready to hit the track?</h3>
+                <p>Elevate your grid presence with professional-grade digital motorsport design.</p>
+                <a href="#services" class="btn btn-primary full-width">View Pricing & Packages</a>
+            </div>
+        </div>
+    </section>
 
-    <p style="color: var(--text-muted); font-size: 1rem; max-width: 900px;">
-        Choose from a <strong>custom ACC livery</strong>, a simpler custom overlay,
-        or a <strong>real-life livery reproduction</strong>.
-    </p>
-</section>
-
-        <section>
-            <h2 class="section-title">ACC Livery Showcase</h2><a href="gallery.html" class="folder-btn">View Showcase</a><br><br>
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <div class="gallery-image-placeholder"><img src="images/custom.jpg" alt="Custom Assetto Corsa Competizione GT3 livery by NewbFixer" loading="lazy" ></div>
-                    <div class="gallery-info">
+    <section class="section showcase-section" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>ACC Livery Showcase</h2>
+                <a href="gallery.html" class="text-link">View Showcase &rarr;</a>
+            </div>
+            <div class="showcase-grid">
+                
+                <div class="showcase-card">
+                    <div class="card-img-placeholder custom-bg"></div>
+                    <div class="card-content">
                         <h3>Full Custom ACC Livery</h3>
-<p>Unique team colours, sponsors, branding and driver graphics created for Assetto Corsa Competizione.</p>
+                        <p>Unique team colours, sponsors, branding and driver graphics created for Assetto Corsa Competizione.</p>
                     </div>
                 </div>
-                <div class="gallery-card">
-                    <div class="gallery-image-placeholder"><img src="images/repo.jpg" alt="Real-life GT World Challenge livery reproduced for Assetto Corsa Competizione" loading="lazy" ></div>
-                    <div class="gallery-info">
+
+                <div class="showcase-card">
+                    <div class="card-img-placeholder repo-bg"></div>
+                    <div class="card-content">
                         <h3>Real-Life Livery Reproduction</h3>
-<p>Real-world GT racing liveries recreated for Assetto Corsa Competizione.</p>
+                        <p>Real-world GT racing liveries recreated for Assetto Corsa Competizione.</p>
                     </div>
                 </div>
-                <div class="gallery-card">
-                    <div class="gallery-image-placeholder"><img src="images/overlay.jpg" alt="Custom Assetto Corsa Competizione car overlay with team branding" loading="lazy" ></div>
-                    <div class="gallery-info">
+
+                <div class="showcase-card">
+                    <div class="card-img-placeholder overlay-bg"></div>
+                    <div class="card-content">
                         <h3>Custom ACC Livery Overlay</h3>
-<p>Custom branding, sponsors, team logos and driver graphics applied to an existing ACC livery.</p>
+                        <p>Custom branding, sponsors, team logos and driver graphics applied to an existing ACC livery.</p>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+    </section>
 
-
-        <section class="reviews-section">
-            <h2 class="section-title">Customer Reviews</h2>
-
-    
-
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="section-header center">
+                <h2>Customer Reviews</h2>
+            </div>
             <div class="reviews-grid">
+             
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“Amazing! All my requests where fulfilled and I was pleased by the results.”</p>
+                    <span class="reviewer">&nbsp;</span>
+                </div>
 
-                <article class="review-card">
-                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p class="review-text">
-                        “Amazing! All my requests where fulfilled and I was pleased by the results.”
-                    </p>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            <div class="review-author-name">Customer Review</div>
-                        </div>
-                    </div>
-                </article>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“Great communication and an awesome reproduction of the real car. Really happy with the result.”</p>
+                    <span class="reviewer">&nbsp;</span>
+                </div>
 
-                <article class="review-card">
-                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p class="review-text">
-                        “Great communication and an awesome reproduction of the real car. Really happy with the result.”
-                    </p>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            <div class="review-author-name">Customer Review</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <p class="review-text">
-                        “Excellent attention to detail and a brilliant finished livery. Would definitely order another.”
-                    </p>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            <div class="review-author-name">Customer Review</div>
-                        </div>
-                    </div>
-                </article>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>“Excellent attention to detail and a brilliant finished livery. Would definitely order another.”</p>
+                    <span class="reviewer">&nbsp;</span>
+                </div>
+            
+        
 
             </div>
-
-            <div class="reviews-actions">
-                <a href="reviews.html" class="review-action-btn">View All Reviews</a>
+            <div class="center-btn">
+                <a href="reviews.html" class="btn btn-secondary">View All Reviews</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2 class="section-title">Custom ACC Livery Services & Prices</h2>
+    <section class="section pricing-section" id="services">
+        <div class="container">
+            <div class="section-header center">
+                <h2>Custom ACC Livery Services & Prices</h2>
+            </div>
             <div class="pricing-grid">
                 
-                <div class="price-card">
-                    <div>
+                <div class="pricing-card">
+                    <div class="price-header">
                         <h3>Basic Custom Overlay</h3>
-                        <div class="price-tag">£15 GBP</div>
-                        <p>Create a personalised ACC race car using an existing livery as the base. Add your team logo, driver name, sponsors, colours and other custom branding.</p>
+                        <div class="price">£15 <span>GBP</span></div>
                     </div>
-                    <ul>
+                    <p>Create a personalised ACC race car using an existing livery as the base. Add your team logo, driver name, sponsors, colours and other custom branding.</p>
+                    <ul class="pricing-notes">
                         <li>You can use any of my Race Department liveries as an existing base.</li>
                     </ul>
+                    <a href="#contact" class="btn btn-primary full-width">Order Overlay</a>
                 </div>
 
-                <div class="price-card">
-                    <div>
+                <div class="pricing-card featured">
+                    <div class="popular-tag">MOST POPULAR</div>
+                    <div class="price-header">
                         <h3>Full Custom Livery</h3>
-                        <div class="price-tag">£45 GBP</div>
-                        <p>Get a completely original custom Assetto Corsa Competizione livery designed around your team colours, sponsors, logos, driver name and preferred racing style..</p>
+                        <div class="price">£45 <span>GBP</span></div>
                     </div>
+                    <p>Get a completely original custom Assetto Corsa Competizione livery designed around your team colours, sponsors, logos, driver name and preferred racing style.</p>
+                    <a href="#contact" class="btn btn-primary full-width">Order Custom Livery</a>
                 </div>
 
-                <div class="price-card">
-                    <div>
+                <div class="pricing-card">
+                    <div class="price-header">
                         <h3>Livery Reproduction</h3>
-                        <div class="price-tag">£55 - £65 GBP</div>
-                        <p>Have a real-world racing livery recreated for Assetto Corsa Competizione. Ideal for recreating GT3 and GT World Challenge liveries from real racing teams and drivers.</p>
+                        <div class="price">£55 - £65 <span>GBP</span></div>
                     </div>
-                    <ul>
+                    <p>Have a real-world racing livery recreated for Assetto Corsa Competizione. Ideal for recreating GT3 and GT World Challenge liveries from real racing teams and drivers.</p>
+                    <ul class="pricing-notes">
                         <li>*ACC number placement limits may affect 100% reproduction.</li>
                         <li>*Car shape differences may alter exact sponsor locations.</li>
                     </ul>
+                    <a href="#contact" class="btn btn-primary full-width">Order Reproduction</a>
                 </div>
 
-
             </div>
-        </section>
 
-        <section>
-            <div class="inclusions-box">
-                <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">When you purchase any type of livery you will also get...</h3>
-                <div class="inclusions-grid">
-                    <div class="inclusion-item">ACC Livery Files</div>
-                    <div class="inclusion-item">All graphics and assets (fonts, SVGs, vectors etc.)</div>
-                    <div class="inclusion-item">Source PSD Files</div>
-                    <div class="inclusion-item">Mudbox Files</div>
-                    <div class="inclusion-item">Vehicle 3D .obj</div>
-                    <div class="inclusion-item">ACC Paint Preset Files (Chrome, Gloss, Matte etc.)</div>
+            <div class="perks-banner">
+                <h3>When you purchase any type of livery you will also get...</h3>
+                <div class="perks-grid">
+                    <span>ACC Livery Files</span>
+                    <span>All graphics & assets (fonts, SVGs, vectors etc.)</span>
+                    <span>Source PSD Files</span>
+                    <span>Mudbox Files</span>
+                    <span>Vehicle 3D .obj</span>
+                    <span>ACC Paint Preset Files (Chrome, Gloss, Matte etc.)</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    
 
-        <section class="cta-section">
+    <section class="section contact-section" id="contact">
+        <div class="container contact-container">
             <h2>Get In Touch</h2>
             <p>To have a custom livery or reproduction made drop me a message!</p>
             
-            <div class="btn-container">
-                <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank" class="btn">Join Discord Channel</a>
-                <a href="https://paypal.me/NwbFxrLiveries?country.x=GB&locale.x=en_GB" target="_blank" class="btn btn-secondary">Send Payment / Tip via PayPal</a>
+            <div class="contact-actions">
+                <a href="#discord" class="btn btn-primary">Join Discord Channel</a>
+                <a href="https://paypal.me/NwbFxrLiveries" target="_blank" class="btn btn-secondary">Send Payment / Tip via PayPal</a>
             </div>
 
-            <div class="paypal-notice">
-                <p>Discord: <strong>@stereo8275</strong></p>
-                <p style="margin-top: 0.5rem;">All Tips and Payment Can be sent to <a href="https://paypal.me/NwbFxrLiveries?country.x=GB&locale.x=en_GB" target="_blank">paypal.me/NwbFxrLiveries</a></p>
+            <div class="contact-info">
+                <p><strong>Discord:</strong> @stereo8275</p>
+                <p>All Tips and Payment Can be sent to <a href="https://paypal.me/NwbFxrLiveries" target="_blank" class="accent-link">paypal.me/NwbFxrLiveries</a></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-  
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 NewbFixer — Custom Assetto Corsa Competizione Liveries</p>
+            <p class="footer-sub">Custom liveries, reproductions, overlays and sim racing artwork.</p>
+        </div>
+    </footer>
 
-   <footer>
-    <p>
-        &copy; 2026 NewbFixer — Custom Assetto Corsa Competizione Liveries
-    </p>
-    <p style="margin-top: 0.4rem;">
-        Custom liveries, reproductions, overlays and sim racing artwork.
-    </p>
-</footer>
-  </div>
 </body>
 </html>

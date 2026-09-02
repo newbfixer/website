@@ -5,97 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NewbFixer ACC Livery Gallery</title>
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="stylesheet" href="scripts/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-    --accent-blue: #50a2ff;
-    --accent-orange: #f97316;
-    --bg-dark: #090a0f;
-    --bg-card: #12151f;
-    --text-main: #f3f4f6;
-    --text-muted: #9ca3af;
-    --border-color: #1f2937;
+/* Additional Gallery Specific Styles matching style4.css variables */
+.gallery-section-wrapper {
+    margin-bottom: 40px;
 }
 
-* {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-main);
-    margin: 0;
-    padding: 0px 0p 0px 0px;
-}
-.container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0px 20px 0px 20px;
-        }
-        
-
-h1 {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: #fff;
-    
-}
-h2 {
-            font-size: 22px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 4px solid var(--accent-orange);
-            padding-left: 1rem;
-        }
-        
-        /* Top Social Bar */
-        .top-social-bar {
-            background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0.5rem 1.5rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.2rem;
-            font-size: 0.9rem;
-        }
-
-        .social-container a {
-            color: var(--text-muted);
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .social-container a:hover {
-            color: var(--accent-orange);
-        }
-        
-        .social-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width:100%;
-            text-align:center;
-        }
-        
-/* Button Controls Container */
 .controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Vehicle Folder Buttons */
 .folder-btn {
     background-color: var(--bg-card);
     color: var(--text-main);
@@ -120,18 +50,14 @@ h2 {
     box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
 }
 
-.gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .folder-title {
     text-align: center;
-    margin: 20px 0;
-    font-size: 24px;
+    margin: 15px 0;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent-blue);
+    font-family: var(--font-heading);
 }
 
 .gallery {
@@ -155,7 +81,6 @@ h2 {
     border-color: var(--accent-blue);
 }
 
-/* Fullscreen image viewer with left/right slide feel */
 #lightbox {
     display: none;
     position: fixed;
@@ -217,131 +142,80 @@ h2 {
 #nextBtn {
     right: 30px;
 }
-
-header h1 {
-            font-size: 2.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-      header h1 span.newb { color: var(--accent-blue); }
-        header h1 span.fixer { color: var(--accent-orange); }
-        a{color:#ffffff;
-        	text-decoration:none;}
-        	
-           hr {
-				    display: block;
-				    height: 1px;
-				    border: 0;
-				    border-top: 1px solid #1f2937;
-				    margin: 0px 0px 25px 0px;
-				    padding: 0;
-			}
-
-       header {
-            background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
-            border-bottom: 2px solid var(--border-color);
-            padding: 0px 0px 10px 0px;
-            text-align: center;
-            margin-bottom:16px;
-        }
-        
-         header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .logo-container {
-            margin-bottom: 2px;
-        }
-         /* Navigation / Back Button */
-        .nav-back {
-            display: inline-block;
-            background-color: var(--bg-card);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 4px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 12px;
-        }
-
-        .nav-back:hover {
-            border-color: var(--accent-orange);
-            transform: translateY(-2px);
-        }
 </style>
 </head>
 <body>
 	
-	<script src="team.js"></script>
-	<script src="sets.js"></script>
-	<script src="custom.js"></script>
-	<script src="overtake.js"></script>
+	<script src="scripts/team.js"></script>
+	<script src="scripts/sets.js"></script>
+	<script src="scripts/custom.js"></script>
+	<script src="scripts/overtake.js"></script>
 	
-	    <!-- Top Social Bar -->
-    <div class="top-social-bar">
-    	<div class="social-container">
-        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank">Discord</a>&nbsp;
-        <a href="https://www.youtube.com/@newbfixer" target="_blank">YouTube</a>&nbsp;
-        <a href="https://www.instagram.com/newbfixerliveries" target="_blank">Instagram</a>&nbsp;
-        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Overtake.gg</a>
-      </div>
-    </div>
-	
-    <header>
-        <div class="logo-container"><br>
-           <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo-area">
+                <a href="index.html"> <span class="logo-text-blue">Newb</span><span class="logo-text-orange">Fixer</span> <span class="logo-text-white">Liveries</span></a>
+            </div>
+            <nav class="social-nav">
+                <!-- <a href="index.html" class="nav-link">Home</a> -->
+                <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank" class="nav-link">Discord</a>
+                <a href="https://www.youtube.com/@newbfixer" target="_blank" class="nav-link">YouTube</a>
+                <a href="https://www.instagram.com/newbfixerliveries" target="_blank" class="nav-link">Instagram</a>
+                <a href="https://overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank" class="nav-link">Overtake.gg</a>
+            </nav>
         </div>
-<h1><span class="newb">Newb</span><span class="fixer">Fixer</span></h1>
-<p>Customer Reviews for Custom Assetto Corsa Competizione Liveries</p><br>
     </header>
+
+    <section class="section" style="margin-top: 75px; background: linear-gradient(135deg, #141720 0%, #080a0f 100%); border-bottom: 2px solid var(--accent-orange);">
+        <div class="container center">
+            <div class="badge">PORTFOLIO ARCHIVE</div>
+            <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3.5rem); text-transform: uppercase; margin-bottom: 12px;">ACC Livery Gallery</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 16px;">Browse through custom ACC liveries, team designs, and public releases.</p>
+            <div><a href="index.html" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.9rem;">&larr; Back to Home</a></div>
+        </div>
+    </section>
     
-<div class="container">
-    <div style="text-align:center; padding:0px 0px 0px 0px;"><a href="index.html" class="nav-back">Back</a></div>
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+
+    <!-- Custom Livery Showcase -->
+    <div class="gallery-section-wrapper">
+        <h2>Custom Livery Showcase</h2>
+        <div class="controls" id="folderButtonsContainer"></div>
+        <div class="folder-title" id="folderTitle"></div>
+        <div class="gallery" id="gallerycustom"></div>
+    </div>
     
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
 
-
-
-<!-- Vehicle Button Controls replacing dropdown -->
-<h2>Custom Livery Showcase</h2>
-<div class="controls" id="folderButtonsContainer"></div>
-<div class="folder-title" id="folderTitle"></div>
-<div class="gallery" id="gallerycustom"></div><br>
-<hr>
-<h2>Custom Team Liveries</h2>
-<div class="controls" id="folderButtonsContainer3"></div>
-<div class="folder-title" id="folderTitle3"></div>
-<div class="gallery" id="galleryteam"></div><br>
-<hr>
-<h2>Free Overtake Liveries</h2>
-<div class="controls" id="folderButtonsContainer4"></div>
-<div class="folder-title" id="folderTitle4"></div>
-<div class="gallery" id="galleryovertake"></div><br>
-<hr>
-<h2>Free Overtake Liveries (Sets)</h2>
-<div class="controls" id="folderButtonsContainer2"></div>
-<div class="folder-title" id="folderTitle2"></div>
-<div class="gallery" id="gallerysets"></div><br>
-<hr>
-
-<!-- <h2>Team Custom Liveries</h2>
-<div class="controls" id="setsButtonsContainer"></div>
-<div class="gallery" id="galleryteam"></div>
-
-<h2>Free Overtake Liveries</h2>
-<div class="controls" id="setsButtonsContainer"></div>
-<div class="gallery" id="galleryovertake"></div>
-
-<div class="gallery-container">
-    <div class="folder-title" id="folderTitle">Select a vehicle above</div>
+    <!-- Custom Team Liveries -->
+    <div class="gallery-section-wrapper">
+        <h2>Custom Team Liveries</h2>
+        <div class="controls" id="folderButtonsContainer3"></div>
+        <div class="folder-title" id="folderTitle3"></div>
+        <div class="gallery" id="galleryteam"></div>
+    </div>
     
-</div> -->
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
+
+    <!-- Free Overtake Liveries -->
+    <div class="gallery-section-wrapper">
+        <h2>Free Overtake Liveries</h2>
+        <div class="controls" id="folderButtonsContainer4"></div>
+        <div class="folder-title" id="folderTitle4"></div>
+        <div class="gallery" id="galleryovertake"></div>
+    </div>
+    
+    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
+
+    <!-- Free Overtake Liveries (Sets) -->
+    <div class="gallery-section-wrapper">
+        <h2>Free Overtake Liveries (Sets)</h2>
+        <div class="controls" id="folderButtonsContainer2"></div>
+        <div class="folder-title" id="folderTitle2"></div>
+        <div class="gallery" id="gallerysets"></div>
+    </div>
+
+</div>
 
 <!-- Fullscreen image viewer -->
 <div id="lightbox">
@@ -353,15 +227,11 @@ header h1 {
     <button id="nextBtn" class="nav-btn">&#10095;</button>
 </div>
 
-
 <script>
-
-        
 const buttonContainer = document.getElementById("folderButtonsContainer");
 const buttonContainer2 = document.getElementById("folderButtonsContainer2");
 const buttonContainer3 = document.getElementById("folderButtonsContainer3");
 const buttonContainer4 = document.getElementById("folderButtonsContainer4");
-const setsContainer = document.getElementById("setsButtonsContainer");
 const galleryovertake = document.getElementById("galleryovertake");
 const gallerysets = document.getElementById("gallerysets");
 const galleryteam = document.getElementById("galleryteam");
@@ -383,8 +253,6 @@ let zoomLevel = 1;
 
 function showImage(index, direction = 0) {
     currentIndex = index;
-    
-    // Simple transition effect when sliding left/right
     lightboxImg.style.opacity = 0;
     setTimeout(() => {
         lightboxImg.src = currentImages[index];
@@ -411,149 +279,108 @@ function prevImage() {
     showImage(currentIndex, -1);
 }
 
-// Generate folder buttons dynamically
-Object.keys(customData).sort().forEach(folder => {
-    const btn = document.createElement("button");
-    btn.className = "folder-btn";
-    btn.textContent = folder.replaceAll("_", " ");
-    
-    btn.addEventListener("click", () => {
-        // Update active class on buttons
-        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        gallerycustom.innerHTML = "";
-        title.textContent = folder.replaceAll("_", " ");
-        currentImages = [];
-
-        customData[folder].forEach((file, index) => {
-            const img = document.createElement("img");
-            // Points to the liveries folder path
-            img.src = `liveries/${folder}/${file}`;
-            img.loading = "lazy";
-
-            currentImages.push(img.src);
-
-            img.addEventListener("click", () => {
-                openLightbox(index);
+// Generate custom buttons
+if (typeof customData !== 'undefined') {
+    Object.keys(customData).sort().forEach(folder => {
+        const btn = document.createElement("button");
+        btn.className = "folder-btn";
+        btn.textContent = folder.replaceAll("_", " ");
+        btn.addEventListener("click", () => {
+            buttonContainer.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            gallerycustom.innerHTML = "";
+            title.textContent = folder.replaceAll("_", " ");
+            currentImages = [];
+            customData[folder].forEach((file, index) => {
+                const img = document.createElement("img");
+                img.src = `liveries/${folder}/${file}`;
+                img.loading = "lazy";
+                currentImages.push(img.src);
+                img.addEventListener("click", () => openLightbox(index));
+                gallerycustom.appendChild(img);
             });
-
-            gallerycustom.appendChild(img);
         });
+        buttonContainer.appendChild(btn);
     });
+}
 
-    buttonContainer.appendChild(btn);
-});
-// Generate folder buttons dynamically
-Object.keys(setsData).sort().forEach(folder => {
-    const btn = document.createElement("button");
-    btn.className = "folder-btn";
-    btn.textContent = folder.replaceAll("_", " ");
-    
-    btn.addEventListener("click", () => {
-        // Update active class on buttons
-        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        gallerysets.innerHTML = "";
-        title2.textContent = folder.replaceAll("_", " ");
-        currentImages = [];
-
-        setsData[folder].forEach((file, index) => {
-            const img = document.createElement("img");
-            // Points to the liveries folder path
-            img.src = `liveries/${folder}/${file}`;
-            img.loading = "lazy";
-
-            currentImages.push(img.src);
-
-            img.addEventListener("click", () => {
-                openLightbox(index);
+// Generate sets buttons
+if (typeof setsData !== 'undefined') {
+    Object.keys(setsData).sort().forEach(folder => {
+        const btn = document.createElement("button");
+        btn.className = "folder-btn";
+        btn.textContent = folder.replaceAll("_", " ");
+        btn.addEventListener("click", () => {
+            buttonContainer2.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            gallerysets.innerHTML = "";
+            title2.textContent = folder.replaceAll("_", " ");
+            currentImages = [];
+            setsData[folder].forEach((file, index) => {
+                const img = document.createElement("img");
+                img.src = `liveries/${folder}/${file}`;
+                img.loading = "lazy";
+                currentImages.push(img.src);
+                img.addEventListener("click", () => openLightbox(index));
+                gallerysets.appendChild(img);
             });
-
-            gallerysets.appendChild(img);
         });
+        buttonContainer2.appendChild(btn);
     });
+}
 
-    buttonContainer2.appendChild(btn);
-});
-// Generate folder buttons dynamically
-Object.keys(teamData).sort().forEach(folder => {
-    const btn = document.createElement("button");
-    btn.className = "folder-btn";
-    btn.textContent = folder.replaceAll("_", " ");
-    
-    btn.addEventListener("click", () => {
-        // Update active class on buttons
-        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        galleryteam.innerHTML = "";
-        title3.textContent = folder.replaceAll("_", " ");
-        currentImages = [];
-
-        teamData[folder].forEach((file, index) => {
-            const img = document.createElement("img");
-            // Points to the liveries folder path
-            img.src = `liveries/${folder}/${file}`;
-            img.loading = "lazy";
-
-            currentImages.push(img.src);
-
-            img.addEventListener("click", () => {
-                openLightbox(index);
+// Generate team buttons
+if (typeof teamData !== 'undefined') {
+    Object.keys(teamData).sort().forEach(folder => {
+        const btn = document.createElement("button");
+        btn.className = "folder-btn";
+        btn.textContent = folder.replaceAll("_", " ");
+        btn.addEventListener("click", () => {
+            buttonContainer3.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            galleryteam.innerHTML = "";
+            title3.textContent = folder.replaceAll("_", " ");
+            currentImages = [];
+            teamData[folder].forEach((file, index) => {
+                const img = document.createElement("img");
+                img.src = `liveries/${folder}/${file}`;
+                img.loading = "lazy";
+                currentImages.push(img.src);
+                img.addEventListener("click", () => openLightbox(index));
+                galleryteam.appendChild(img);
             });
-
-            galleryteam.appendChild(img);
         });
+        buttonContainer3.appendChild(btn);
     });
+}
 
-    buttonContainer3.appendChild(btn);
-});
-// Generate folder buttons dynamically
-Object.keys(overtakeData).sort().forEach(folder => {
-    const btn = document.createElement("button");
-    btn.className = "folder-btn";
-    btn.textContent = folder.replaceAll("_", " ");
-    
-    btn.addEventListener("click", () => {
-        // Update active class on buttons
-        document.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        galleryovertake.innerHTML = "";
-        title4.textContent = folder.replaceAll("_", " ");
-        currentImages = [];
-
-        overtakeData[folder].forEach((file, index) => {
-            const img = document.createElement("img");
-            // Points to the liveries folder path
-            img.src = `liveries/${folder}/${file}`;
-            img.loading = "lazy";
-
-            currentImages.push(img.src);
-
-            img.addEventListener("click", () => {
-                openLightbox(index);
+// Generate overtake buttons
+if (typeof overtakeData !== 'undefined') {
+    Object.keys(overtakeData).sort().forEach(folder => {
+        const btn = document.createElement("button");
+        btn.className = "folder-btn";
+        btn.textContent = folder.replaceAll("_", " ");
+        btn.addEventListener("click", () => {
+            buttonContainer4.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            galleryovertake.innerHTML = "";
+            title4.textContent = folder.replaceAll("_", " ");
+            currentImages = [];
+            overtakeData[folder].forEach((file, index) => {
+                const img = document.createElement("img");
+                img.src = `liveries/${folder}/${file}`;
+                img.loading = "lazy";
+                currentImages.push(img.src);
+                img.addEventListener("click", () => openLightbox(index));
+                galleryovertake.appendChild(img);
             });
-
-            galleryovertake.appendChild(img);
         });
+        buttonContainer4.appendChild(btn);
     });
+}
 
-    buttonContainer4.appendChild(btn);
-});
-
-
-prevBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    prevImage();
-});
-
-nextBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    nextImage();
-});
+prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prevImage(); });
+nextBtn.addEventListener("click", (e) => { e.stopPropagation(); nextImage(); });
 
 lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) {
@@ -565,7 +392,6 @@ lightbox.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
     if (lightbox.style.display !== "flex") return;
-
     if (e.key === "ArrowRight") nextImage();
     if (e.key === "ArrowLeft") prevImage();
     if (e.key === "Escape") lightbox.style.display = "none";
@@ -573,17 +399,22 @@ document.addEventListener("keydown", (e) => {
 
 lightboxImg.addEventListener("wheel", (e) => {
     e.preventDefault();
-
     if (e.deltaY < 0) {
         zoomLevel += 0.1;
     } else {
         zoomLevel -= 0.1;
     }
-
     zoomLevel = Math.max(0.5, Math.min(5, zoomLevel));
     lightboxImg.style.transform = `scale(${zoomLevel})`;
 }, { passive: false });
 </script>
-</div>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>&copy; 2026 NewbFixer Liveries. All rights reserved.</p>
+        <p class="footer-sub">Custom Assetto Corsa Competizione Designs</p>
+    </div>
+</footer>
+
 </body>
 </html>

@@ -3,875 +3,507 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO -->
-    <title>ACC Livery Reviews | NewbFixer Custom Liveries</title>
-		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta name="description" content="Read real customer reviews of NewbFixer's custom Assetto Corsa Competizione liveries, livery reproductions, overlays, communication and service.">
-
-    <meta name="robots" content="index, follow, max-image-preview:large">
-
-    <link rel="canonical" href="https://newbfixer.com/reviews.html">
-
-    <meta name="author" content="NewbFixer">
-    <meta name="theme-color" content="#090a0f">
-    <meta name="color-scheme" content="dark">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://newbfixer.com/reviews.html">
-    <meta property="og:title" content="ACC Livery Reviews | NewbFixer">
-    <meta property="og:description" content="Read real customer feedback about NewbFixer's custom Assetto Corsa Competizione liveries and livery design service.">
-    <meta property="og:image" content="https://newbfixer.com/images/NewbieFixer.orbitron.2024.png">
-    <meta property="og:image:alt" content="NewbFixer custom ACC liveries">
-    <meta property="og:site_name" content="NewbFixer">
-
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ACC Livery Reviews | NewbFixer">
-    <meta name="twitter:description" content="Read real customer feedback about NewbFixer's custom Assetto Corsa Competizione liveries and livery design service.">
-    <meta name="twitter:image" content="https://newbfixer.com/images/NewbieFixer.orbitron.2024.png">
-    <meta name="twitter:image:alt" content="NewbFixer custom ACC liveries">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://newbfixer.com/#website",
-          "url": "https://newbfixer.com/",
-          "name": "NewbFixer",
-          "description": "Custom Assetto Corsa Competizione liveries and sim racing artwork.",
-          "inLanguage": "en-GB"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://newbfixer.com/#organization",
-          "name": "NewbFixer",
-          "url": "https://newbfixer.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://newbfixer.com/images/NewbieFixer.orbitron.2024.png"
-          },
-          "sameAs": [
-            "https://www.overtake.gg/downloads/authors/newbfixer.2818380/"
-          ]
-        }
-      ]
-    }
-    </script>
-
+    <title>Customer Reviews (30) — NewbFixer Liveries</title>
+    <link rel="stylesheet" href="scripts/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-
-        :root {
-            --accent-blue: #50a2ff;
-            --accent-orange: #f97316;
-            --bg-dark: #090a0f;
-            --bg-card: #12151f;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 4rem;
-        }
-        
-        a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        header {
-            background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, rgba(9, 10, 15, 1) 70%), var(--bg-dark);
-            border-bottom: 2px solid var(--border-color);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .logo-container {
-            margin-bottom: 2px;
-        }
-
-        header h1 {
-            font-size: 2.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        header h1 span.newb { color: var(--accent-blue); }
-        header h1 span.fixer { color: var(--accent-orange); }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-        
-        /* Top Social Bar */
-        .top-social-bar {
-            background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0.5rem 1.5rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.2rem;
-            font-size: 0.9rem;
-        }
-
-        .social-container a {
-            color: var(--text-muted);
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .social-container a:hover {
-            color: var(--accent-orange);
-        }
-        
-        .social-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width:100%;
-            text-align:center;
-        }
-
-        h2.section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 4px solid var(--accent-orange);
-            padding-left: 1rem;
-        }
-
-        /* Navigation / Back Button */
-        .nav-back {
-            display: inline-block;
-            background-color: var(--bg-card);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 4px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 2rem;
-        }
-
-        .nav-back:hover {
-            border-color: var(--accent-orange);
-            transform: translateY(-2px);
-        }
-
-        /* Customer Reviews Section Styles */
-        .reviews-section {
-            position: relative;
-        }
-
-        .reviews-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.25rem 1.5rem;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(249, 115, 22, 0.04));
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        .reviews-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .reviews-stars {
-            color: #fbbf24;
-            font-size: 1.25rem;
-            letter-spacing: 2px;
-            white-space: nowrap;
-        }
-
-        .reviews-rating strong {
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .reviews-count {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
         .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .review-card {
-            position: relative;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
             display: flex;
             flex-direction: column;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            background: var(--bg-card, #12151c);
+            border: 1px solid var(--border-color, #222634);
+            border-radius: 8px;
+            padding: 20px 24px;
+            position: relative;
+            width: 100%;
+        }
+        .review-header {
+            display: flex;
             justify-content: space-between;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 8px;
         }
-
-        .review-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .review-card::before {
-            content: "“";
-            position: absolute;
-            top: 0.45rem;
-            right: 1rem;
-            font-size: 3.5rem;
-            line-height: 1;
-            color: rgba(56, 189, 248, 0.12);
-            font-family: Georgia, serif;
-        }
-
-        .review-card-stars {
-            color: #fbbf24;
-            letter-spacing: 2px;
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .review-text {
-            color: #d1d5db;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            white-space: pre-line;
-        }
-
-        .review-details {
+        .review-card .stars {
+            color: #f59e0b;
             font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            border-left: 2px solid var(--accent-orange);
-            padding-left: 0.5rem;
+            letter-spacing: 2px;
         }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.9rem;
-        }
-
-        .review-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
-            color: #fff;
-            font-weight: 700;
+        .review-date {
             font-size: 0.8rem;
-            flex-shrink: 0;
+            color: var(--text-muted, #94a3b8);
         }
-
-        .review-author-name {
-            color: #fff;
+        .review-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-main, #f8fafc);
+            margin: 0 0 12px 0;
+        }
+        .recommendation-box {
+            font-size: 0.8rem;
+            color: var(--text-muted, #94a3b8);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 10px;
+            width: 100%;
+        }
+        .recommendation-label {
+            display: block;
             font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .review-author-label {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 850px) {
-            .reviews-summary {
-                align-items: flex-start;
-                flex-direction: column;
-            }
+            color: var(--accent-orange, #f97316);
+            margin-bottom: 2px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
-	
-	    <!-- Top Social Bar -->
-    <div class="top-social-bar">
-    	<div class="social-container">
-        <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank">Discord</a>&nbsp;
-        <a href="https://www.youtube.com/@newbfixer" target="_blank">YouTube</a>&nbsp;
-        <a href="https://www.instagram.com/newbfixerliveries" target="_blank">Instagram</a>&nbsp;
-        <a href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank">Overtake.gg</a>
-      </div>
-    </div>
 
-    <header>
-        <div class="logo-container">
-            <a href="index.html"><img src="images/NewbieFixer.orbitron.2024.png" alt="NewbFixer Liveries Logo" width="130"></a>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo-area">
+                <a href="index.html"> <span class="logo-text-blue">Newb</span><span class="logo-text-orange">Fixer</span> <span class="logo-text-white">Liveries</span></a>
+            </div>
+            <nav class="social-nav">
+               <!-- <a href="index.html" class="nav-link">Home</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="reviews.html" class="nav-link highlight-link">Reviews (30)</a> -->
+                <a href="https://discord.com/channels/990022798716063764/1106954552516821103" target="_blank" class="nav-link">Discord</a>
+                <a href="https://www.youtube.com/@newbfixer" target="_blank" class="nav-link">YouTube</a>
+                <a href="https://www.instagram.com/newbfixerliveries" target="_blank" class="nav-link">Instagram</a>
+                <a href="https://overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank" class="nav-link">Overtake.gg</a>
+            </nav>
         </div>
-<h1><span class="newb">Newb</span><span class="fixer">Fixer</span></h1>
-<p>Customer Reviews for Custom Assetto Corsa Competizione Liveries</p>
     </header>
 
-    <div class="container">
+    <section class="section" style="margin-top: 75px; background: linear-gradient(135deg, #141720 0%, #080a0f 100%); border-bottom: 2px solid var(--accent-orange);">
+        <div class="container center">
+            <div class="badge">TESTIMONIALS</div>
+            <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3.5rem); text-transform: uppercase; margin-bottom: 12px;">Client Reviews</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 16px;">Feedback from 30 sim racers who elevated their grid presence with NewbFixer liveries, ordered from newest to oldest.</p>
+            <div><a href="index.html" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.9rem;">&larr; Back to Home</a></div>
+        </div>
+    </section>
 
-        <a href="index.html" class="nav-back">Back</a>
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="reviews-grid">
+                
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">August 29, 2026</span>
+                    </div>
+                    <p>“It was reallly good the work is just outrages and more then perfect.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        yes i would recommend the service bc its the best service i have ever seen
+                    </div>
+                </div>
 
-        <section class="reviews-section">
-            <h2 class="section-title">Customer Reviews</h2>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">May 19, 2026</span>
+                    </div>
+                    <p>“Great service, responses were fast and helpful. The service is already amazing.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        yes
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">May 10, 2026</span>
+                    </div>
+                    <p>“Amazing! All my requests where fulfilled and I was pleased by the results.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">April 25, 2026</span>
+                    </div>
+                    <p>“Always checking in with me and showing progress, great!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">July 18, 2024</span>
+                    </div>
+                    <p>“Found a veryy nice livery on RaceDepartment so i wanted to request a team livery with the same style. Very straight forward. Was my first request for a paid livery and i couldnt wish for more...hit exactly the tone i wanted.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes 10/10
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">June 20, 2024</span>
+                    </div>
+                    <p>“Absolutely phenomenal!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Most definitely
+                    </div>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">June 6, 2024</span>
+                    </div>
+                    <p>“It was very good and super easy. I showed what i wanted and what i wanted to have changed and it gort noted by him and got put on the Liverie hwo i wanted it.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes 100% it was easy very kind writing etc
+                    </div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">May 19, 2024</span>
+                    </div>
+                    <p>“Smooth and Simple - Communication was clear, Andy kept me up to date and how long it would take. 10/10. Iv'e never seen such effort put into the details of the Art.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Definitely 100%
+                    </div>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">April 16, 2024</span>
+                    </div>
+                    <p>“Informative seamless and fast turnaround time!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes, I always do!
+                    </div>
+                </div>
+
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">April 4, 2024</span>
+                    </div>
+                    <p>“Very easy to understand and explains the steps in great detail so that everything goes perfectly.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        I would definitely recommend this guy to do the liveries as he knows what you want and knows how to express your ideas in the car. 100/100
+                    </div>
+                </div>
+
+                <!-- Review 11 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">April 4, 2024</span>
+                    </div>
+                    <p>“Awesome 10/10 quality and design.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Absolutely yes, will recommend to everyone i know.
+                    </div>
+                </div>
+
+                <!-- Review 12 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">April 2, 2024</span>
+                    </div>
+                    <p>“Quick, easy, well-communicated.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Absolutely! A completely painless, transparent, quick service.
+                    </div>
+                </div>
+
+                <!-- Review 13 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">March 19, 2024</span>
+                    </div>
+                    <p>“In a word, Excellent...Andy makes it easy, he communicates well, and is very professional.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes, 100%...without a doubt...all my teammates already know about Andy and his handywork
+                    </div>
+                </div>
+
+                <!-- Review 14 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">March 17, 2024</span>
+                    </div>
+                    <p>“It was Unique, i told him i have a Race tommorow and 6 Hours i Drove with a new Livery, i am more than amazed 🤩”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes, if u want Speed and Perfection !
+                    </div>
+                </div>
+
+                <!-- Review 15 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">March 13, 2024</span>
+                    </div>
+                    <p>“I contacted Andy regarding a few changes to an existing livery done by a different painter. By the next day all changes I had requested were done to a very high standard.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Most Definitely and I’ll be sending people his way too.
+                    </div>
+                </div>
+
+                <!-- Review 16 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">March 2, 2024</span>
+                    </div>
+                    <p>“Very easy!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Most definitely!
+                    </div>
+                </div>
+
+                <!-- Review 17 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">February 29, 2024</span>
+                    </div>
+                    <p>“Painless and a professional service.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        100% reliable and experienced livery maker
+                    </div>
+                </div>
+
+                <!-- Review 18 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">January 29, 2024</span>
+                    </div>
+                    <p>“Very easy! Replies very fast and work done is quality!! Would 100% ask again!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes, definitely!
+                    </div>
+                </div>
+
+                <!-- Review 19 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">January 10, 2024</span>
+                    </div>
+                    <p>“Very easy and was very understanding. Oh, hell yes!!! if you look at what he has on RD (race department) how I found him, one of the best if not best livery designer's in ACC.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Oh, hell yes!!!
+                    </div>
+                </div>
+
+                <!-- Review 20 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">January 9, 2024</span>
+                    </div>
+                    <p>“Absolutely flawless, and Blown away by results. Fast responses and turn around time. Couldn't be happier with results. Car looks amazing on track.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Absolutely 100%
+                    </div>
+                </div>
+
+                <!-- Review 21 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">January 9, 2024</span>
+                    </div>
+                    <p>“The process was flawless fluid and extremely efficient, felt like royalty! This not being my 1st livery from NewB Fixer Andy I am always blown away and my expectations are far exceeded!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes and have always recommended!
+                    </div>
+                </div>
+
+                <!-- Review 22 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">December 23, 2023</span>
+                    </div>
+                    <p>“Over discord. Absolutely, Blown away by custom design, cannot recommend enough. Trust me you will not be disappointed. communication was AAA and super friendly. GREAT SERVICE.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Absolutely, Blown away by custom design
+                    </div>
+                </div>
+
+                <!-- Review 23 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">December 3, 2023</span>
+                    </div>
+                    <p>“Easy.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Heck yes
+                    </div>
+                </div>
+
+                <!-- Review 24 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">November 4, 2023</span>
+                    </div>
+                    <p>“Amazing! 1,000,000 / 10”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Absolutely!
+                    </div>
+                </div>
+
+                <!-- Review 25 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">November 1, 2023</span>
+                    </div>
+                    <p>“Amazed at the quick response and fast livery completion, designer had great 1 on 1 interaction/ communication and opened my eyes to the possibilities, taking my livery to another level!”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Yes, certainly I have been recommending to others, livery exceeded my expectations!
+                    </div>
+                </div>
+
+                <!-- Review 26 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">October 31, 2023</span>
+                    </div>
+                    <p>“Through Discord, incredible fast communication and delivery.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Most definitely, I will for sure get more liveries made by NewbFixer
+                    </div>
+                </div>
+
+                <!-- Review 27 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">October 4, 2023</span>
+                    </div>
+                    <p>“The process could not be easier or more pleasant. The attention to detail is fantastic and I was given a number of options. I will certainly order other liveries. Thank you once again.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        The communication I got and the speed of delivery was nothing short of amazing.
+                    </div>
+                </div>
+
+                <!-- Review 28 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">October 4, 2023</span>
+                    </div>
+                    <p>“An easy and pleasant experience. Blew all my expectations away, Andy is extremely talented and very service driven.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Already have.
+                    </div>
+                </div>
+
+                <!-- Review 29 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">September 22, 2023</span>
+                    </div>
+                    <p>“Over all my experience was pretty straightforward especially for a pretty difficult service of making a livery. Communication from Andy is excellent and responds very quickly to messages. Listen to what you ask and want, made changes and alterations without issues. Receiving and downloading the livers was simple and even help me with uploading to awesome simracing afterwards and for a bargain of a price. 👌”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        100% recommend
+                    </div>
+                </div>
+
+                <!-- Review 30 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">★★★★★</div>
+                        <span class="review-date">September 22, 2023</span>
+                    </div>
+                    <p>“Excellent communication throughout, even came up with better designd than i could of imagined.”</p>
+                    <div class="recommendation-box">
+                        <span class="recommendation-label">Would you Recommend?</span>
+                        Without doubt Yes.
+                    </div>
+                </div>
+
+            </div>
             
-            <p style="color: var(--text-muted); max-width: 900px; margin-bottom: 1.5rem;">
-    Feedback from customers who have commissioned custom Assetto Corsa Competizione liveries, real-life livery
-    reproductions and custom overlays. Reviews cover the design process,
-    communication, turnaround time, attention to detail and the finished
-    livery.
-</p>
-
-          
-<div class="reviews-summary">
-    <div class="reviews-rating">
-        <div class="reviews-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <div>
-            <strong>5.0 / 5.0 Average Rating</strong>
-            <div class="reviews-count">
-                Based on 30 customer feedback responses
+            <div class="center-btn" style="margin-top: 40px;">
+                <a href="index.html#services" class="btn btn-primary">Order Your Livery Today</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="reviews-count">
-        <span>100% of respondents would recommend the service</span>
-    </div>
-</div>
-
-
-
-            <div class="reviews-grid"><article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">it was reallly good the work is just outrages and more then perfect</p>
-                        <div class="review-details"><strong>Would recommend:</strong> yes i would recommend the service bc its the best service i have ever seen.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Aug 2026</div>
-                        </div>
-                    </div>
-                </article>
-
-            <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">great</p>
-                        <div class="review-details"><strong>Would recommend:</strong> yes.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback May 2026</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Amazing! All my requests where fulfilled and I was pleased by the results.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback May 2026</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Always checking in with me and showing progress, great!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Apr 2026</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Found a veryy nice livery on RaceDepartment so i wanted to request a team livery with the same style. Very straight forward. Was my first request for a paid livery and i couldnt wish for more...hit exactly the tone i wanted.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes 10/10.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jul 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Absolutely phenomenal!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Most definitely.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jun 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">It was very good and super easy. I showed what i wanted and what i wanted to have changed and it gort noted by him and got put on the Liverie hwo i wanted it.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes 100%.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jun 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Smooth and Simple - Communication was clear, Andy kept me up to date and how long it would take. 10/10</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Definitely 100%. Never seen such effort put into details.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback May 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Informative seamless and fast turnaround time!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, I always do! (Client's 4th livery).</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Apr 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Very easy to understand and explains the steps in great detail so that everything goes perfectly.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, knows how to express your ideas onto the car (100/100).</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Apr 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Awesome 10/10 quality and design.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Absolutely yes, will recommend to everyone i know.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Apr 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Quick, easy, well-communicated.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Absolutely! A completely painless, transparent, quick service.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Apr 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">In a word, Excellent...Andy makes it easy, he communicates well, and is very professional</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, 100%... all teammates already know about Andy.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Mar 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">It was Unique, i told him i have a Race tommorow and 6 Hours i Drove with a new Livery, i am more than amazed</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, if u want Speed and Perfection!</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Mar 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">I contacted Andy regarding a few changes to an existing livery done by a different painter. By the next day all changes I had requested were done to a very high standard</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Most Definitely! Customer service is 2nd to none.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Mar 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Very easy!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Most definitely!</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Mar 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Painless and a professional service</p>
-                        <div class="review-details"><strong>Would recommend:</strong> 100% reliable and experienced livery maker.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Feb 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Very easy!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, definitely! Quality work and fast replies.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jan 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Very easy and was very understanding</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Oh, hell yes!!! One of the best if not best livery designer's in ACC.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jan 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Absolutely flawless, and  Blown away by results. Fast responses and turn around time. Couldn't be happier with results. Car looks amazing on track.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Absolutely 100%</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jan 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">The process was flawless fluid and extremely efficient, felt like royalty! This not being my 1st livery from NewB Fixer Andy I am always blown away and my expectations are far exceeded!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes and have always recommended!</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Jan 2024</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Over discord - Blown away by custom design, cannot recommend enough. Trust me you will not be disappointed. communication was AAA and super friendly. GREAT SERVICE</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Absolutely.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Dec 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Easy</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Heck yes</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Dec 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Amazing! 1,000,000 / 10</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Absolutely! 100% perfect and smooth service.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Nov 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Amazed at the quick response and fast livery completion, designer had great 1 on 1 interaction/ communication and opened my eyes to the possibilities, taking my livery to another level!</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Yes, certainly. Exceeded expectations!</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Nov 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Through Discord, incredible fast communication and delivery.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Most definitely, will get more liveries made.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Oct 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">The process could not be easier or more pleasant. The attention to detail is fantastic and I was given a number of options. I will certainly order other liveries. Thank you once again</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Highly recommend, speed of delivery was amazing.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Oct 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">An easy and pleasant experience. Blew all my expectations away, Andy is extremely talented and very service driven.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Already have.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Oct 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Over all my experience was pretty straightforward especially for a pretty difficult service of making a livery. 
-
-Communication from Andy is excellent and responds very quickly to messages. Listen to what you ask and want, made changes and alterations without issues.
-
-Receiving and downloading the livers was simple and even help me with uploading to awesome simracing afterwards and for a bargain of a price. 👌</p>
-                        <div class="review-details"><strong>Would recommend:</strong> 100% recommend</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Sep 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                
-
-                <article class="review-card">
-                    <div>
-                        <div class="review-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p class="review-text">Excellent communication throughout, even came up with better designd than i could of imagined.</p>
-                        <div class="review-details"><strong>Would recommend:</strong> Without doubt Yes.</div>
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">C</div>
-                        <div>
-                            
-                            <div class="review-author-label">Customer Feedback Sep 2023</div>
-                        </div>
-                    </div>
-                </article>
-
-                </div>
-        </section>
-        
-        <div style="text-align:center; margin-top:2.5rem;">
-    <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">
-        Want Your Own Custom ACC Livery?
-    </h3>
-
-    <p style="color:var(--text-muted); margin-bottom:1.2rem;">
-        Get in touch with NewbFixer to discuss a custom Assetto Corsa
-        Competizione livery, reproduction or overlay.
-    </p>
-
-    <a href="index.html" class="nav-back">
-        View Livery Services & Prices
-    </a>
-</div>
-
-    </div>
-
-    <footer>
-    <p>
-        &copy; 2026 NewbFixer — Custom Assetto Corsa Competizione Liveries
-    </p>
-    <p style="margin-top: 0.4rem;">
-        Custom liveries, reproductions, overlays and sim racing artwork.
-    </p>
-</footer>
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 NewbFixer Liveries. All rights reserved.</p>
+            <p class="footer-sub">Custom Assetto Corsa Competizione Designs</p>
+        </div>
+    </footer>
 
 </body>
 </html>
