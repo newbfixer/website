@@ -59,6 +59,79 @@
     color: var(--accent-blue);
     font-family: var(--font-heading);
 }
+.showcase-title {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+    font-family: var(--font-heading);
+}
+.showcase-title-orange {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--accent-orange);
+    font-family: var(--font-heading);
+}
+.showcase-img {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* Main 100% width preview image */
+.main-hero-img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.main-hero-img:hover {
+    transform: scale(1.01);
+    border-color: var(--accent-blue);
+}
+
+/* Container wrapper for the thumbnails below */
+.thumbnail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+}
+
+/* The 5 equal thumbnails below */
+.thumb-img {
+    flex: 0 0 calc(20% - 6.4px);
+    min-width: 0; /* Fixes images popping out of flex containers */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.thumb-img:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-blue);
+}
+
+/* Optional: Shrink thumbnail height slightly on smaller mobile screens */
+@media (max-width: 480px) {
+    .main-hero-img {
+        height: 240px;
+    }
+    .thumb-img {
+        height: 60px;
+    }
+}
+
 
 .gallery {
     display: grid;
@@ -142,14 +215,32 @@
 #nextBtn {
     right: 30px;
 }
+.review-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            background: var(--bg-card, #12151c);
+            border: 1px solid var(--border-color, #222634);
+            border-radius: 8px;
+            padding: 20px 24px;
+            position: relative;
+            width: 100%;
+            
+        }
+.reviews-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-bottom:20px;
+        }
 </style>
 </head>
 <body>
 	
-	<script src="scripts/team.js"></script>
-	<script src="scripts/sets.js"></script>
-	<script src="scripts/custom.js"></script>
-	<script src="scripts/overtake.js"></script>
+	<script src="scripts/showcaseData.js"></script>
 	
     <header class="header">
         <div class="container nav-container">
@@ -175,45 +266,13 @@
         </div>
     </section>
     
-<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+  <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+	
+	
+				<div class="reviews-grid" id="showcaseContainer"></div>
 
-    <!-- Custom Livery Showcase -->
-    <div class="gallery-section-wrapper">
-        <h2>Custom Livery Showcase</h2>
-        <div class="controls" id="folderButtonsContainer"></div>
-        <div class="folder-title" id="folderTitle"></div>
-        <div class="gallery" id="gallerycustom"></div>
-    </div>
-    
-    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
 
-    <!-- Custom Team Liveries -->
-    <div class="gallery-section-wrapper">
-        <h2>Custom Team Liveries</h2>
-        <div class="controls" id="folderButtonsContainer3"></div>
-        <div class="folder-title" id="folderTitle3"></div>
-        <div class="gallery" id="galleryteam"></div>
-    </div>
-    
-    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
-
-    <!-- Free Overtake Liveries -->
-    <div class="gallery-section-wrapper">
-        <h2>Free Overtake Liveries</h2>
-        <div class="controls" id="folderButtonsContainer4"></div>
-        <div class="folder-title" id="folderTitle4"></div>
-        <div class="gallery" id="galleryovertake"></div>
-    </div>
-    
-    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 40px 0;">
-
-    <!-- Free Overtake Liveries (Sets) -->
-    <div class="gallery-section-wrapper">
-        <h2>Free Overtake Liveries (Sets)</h2>
-        <div class="controls" id="folderButtonsContainer2"></div>
-        <div class="folder-title" id="folderTitle2"></div>
-        <div class="gallery" id="gallerysets"></div>
-    </div>
+ 
 
 </div>
 
@@ -228,18 +287,7 @@
 </div>
 
 <script>
-const buttonContainer = document.getElementById("folderButtonsContainer");
-const buttonContainer2 = document.getElementById("folderButtonsContainer2");
-const buttonContainer3 = document.getElementById("folderButtonsContainer3");
-const buttonContainer4 = document.getElementById("folderButtonsContainer4");
-const galleryovertake = document.getElementById("galleryovertake");
-const gallerysets = document.getElementById("gallerysets");
-const galleryteam = document.getElementById("galleryteam");
-const gallerycustom = document.getElementById("gallerycustom");
-const title = document.getElementById("folderTitle");
-const title2 = document.getElementById("folderTitle2");
-const title3 = document.getElementById("folderTitle3");
-const title4 = document.getElementById("folderTitle4");
+
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
@@ -250,6 +298,75 @@ const nextBtn = document.getElementById("nextBtn");
 let currentImages = [];
 let currentIndex = 0;
 let zoomLevel = 1;
+
+
+
+
+// Automatically build the cards and scope lightbox arrays individually
+const showcaseContainer = document.getElementById("showcaseContainer");
+showcaseData.forEach(cardData => {
+    const card = document.createElement("div");
+    card.className = "review-card";
+
+    // Build card HTML structure
+    card.innerHTML = `
+        <div style="width:100%">
+            <span class="showcase-title">${cardData.team}</span>
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0px 4px 0px;">
+        </div>
+        <div>
+            <span class="showcase-title-orange" style="font-size:11px;">Car Model</span>
+            <span style="font-size:13px;">${cardData.carModel}</span>
+        </div>
+        <div>
+            <span class="showcase-title-orange" style="font-size:11px;">Livery Type</span> 
+            <span style="font-size:13px;">${cardData.type}</span>
+        </div>
+        <div class="showcase-img" style="text-align:center;"></div>
+    `;
+
+    const imgContainer = card.querySelector(".showcase-img");
+    
+    // Map image sources specifically for this card group
+    const cardImageSources = cardData.images.map(imgSrc => imgSrc);
+
+    // Main full-width image (Index 0)
+    if (cardData.images.length > 0) {
+        const mainImg = document.createElement("img");
+        mainImg.src = cardData.images[0];
+        mainImg.className = "main-hero-img";
+        mainImg.loading = "lazy";
+        mainImg.addEventListener("click", () => {
+            currentImages = cardImageSources;
+            openLightbox(0);
+        });
+        imgContainer.appendChild(mainImg);
+    }
+
+    // Remaining thumbnails wrapper (Indices 1 to 5)
+    if (cardData.images.length > 1) {
+        const thumbRow = document.createElement("div");
+        thumbRow.className = "thumbnail-row";
+
+        for (let i = 1; i < cardData.images.length; i++) {
+            const thumbImg = document.createElement("img");
+            thumbImg.src = cardData.images[i];
+            thumbImg.className = "thumb-img";
+            thumbImg.loading = "lazy";
+            
+            const currentIndexRef = i;
+            thumbImg.addEventListener("click", () => {
+                currentImages = cardImageSources;
+                openLightbox(currentIndexRef);
+            });
+
+            thumbRow.appendChild(thumbImg);
+        }
+        imgContainer.appendChild(thumbRow);
+    }
+
+    showcaseContainer.appendChild(card);
+});
 
 function showImage(index, direction = 0) {
     currentIndex = index;
@@ -279,105 +396,6 @@ function prevImage() {
     showImage(currentIndex, -1);
 }
 
-// Generate custom buttons
-if (typeof customData !== 'undefined') {
-    Object.keys(customData).sort().forEach(folder => {
-        const btn = document.createElement("button");
-        btn.className = "folder-btn";
-        btn.textContent = folder.replaceAll("_", " ");
-        btn.addEventListener("click", () => {
-            buttonContainer.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            gallerycustom.innerHTML = "";
-            title.textContent = folder.replaceAll("_", " ");
-            currentImages = [];
-            customData[folder].forEach((file, index) => {
-                const img = document.createElement("img");
-                img.src = `liveries/${folder}/${file}`;
-                img.loading = "lazy";
-                currentImages.push(img.src);
-                img.addEventListener("click", () => openLightbox(index));
-                gallerycustom.appendChild(img);
-            });
-        });
-        buttonContainer.appendChild(btn);
-    });
-}
-
-// Generate sets buttons
-if (typeof setsData !== 'undefined') {
-    Object.keys(setsData).sort().forEach(folder => {
-        const btn = document.createElement("button");
-        btn.className = "folder-btn";
-        btn.textContent = folder.replaceAll("_", " ");
-        btn.addEventListener("click", () => {
-            buttonContainer2.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            gallerysets.innerHTML = "";
-            title2.textContent = folder.replaceAll("_", " ");
-            currentImages = [];
-            setsData[folder].forEach((file, index) => {
-                const img = document.createElement("img");
-                img.src = `liveries/${folder}/${file}`;
-                img.loading = "lazy";
-                currentImages.push(img.src);
-                img.addEventListener("click", () => openLightbox(index));
-                gallerysets.appendChild(img);
-            });
-        });
-        buttonContainer2.appendChild(btn);
-    });
-}
-
-// Generate team buttons
-if (typeof teamData !== 'undefined') {
-    Object.keys(teamData).sort().forEach(folder => {
-        const btn = document.createElement("button");
-        btn.className = "folder-btn";
-        btn.textContent = folder.replaceAll("_", " ");
-        btn.addEventListener("click", () => {
-            buttonContainer3.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            galleryteam.innerHTML = "";
-            title3.textContent = folder.replaceAll("_", " ");
-            currentImages = [];
-            teamData[folder].forEach((file, index) => {
-                const img = document.createElement("img");
-                img.src = `liveries/${folder}/${file}`;
-                img.loading = "lazy";
-                currentImages.push(img.src);
-                img.addEventListener("click", () => openLightbox(index));
-                galleryteam.appendChild(img);
-            });
-        });
-        buttonContainer3.appendChild(btn);
-    });
-}
-
-// Generate overtake buttons
-if (typeof overtakeData !== 'undefined') {
-    Object.keys(overtakeData).sort().forEach(folder => {
-        const btn = document.createElement("button");
-        btn.className = "folder-btn";
-        btn.textContent = folder.replaceAll("_", " ");
-        btn.addEventListener("click", () => {
-            buttonContainer4.querySelectorAll(".folder-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            galleryovertake.innerHTML = "";
-            title4.textContent = folder.replaceAll("_", " ");
-            currentImages = [];
-            overtakeData[folder].forEach((file, index) => {
-                const img = document.createElement("img");
-                img.src = `liveries/${folder}/${file}`;
-                img.loading = "lazy";
-                currentImages.push(img.src);
-                img.addEventListener("click", () => openLightbox(index));
-                galleryovertake.appendChild(img);
-            });
-        });
-        buttonContainer4.appendChild(btn);
-    });
-}
 
 prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prevImage(); });
 nextBtn.addEventListener("click", (e) => { e.stopPropagation(); nextImage(); });
