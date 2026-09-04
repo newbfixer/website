@@ -13,11 +13,11 @@
     --orange-glow: rgba(255, 136, 0, 0.35);
     
     /* Change 'your-image-filename.jpg' to your actual background image file path */
-    --hero-bg-image: url('../images/bgcover.webp');
+    --hero-bg-image: url('../images/bgcover.jpg');
     
-    --custom-bg-image: url('../images/custom.webp');
-    --repo-bg-image: url('../images/repro2.webp');
-    --overlay-bg-image: url('../images/overlay.webp');
+    --custom-bg-image: url('../images/custom.jpg');
+    --repo-bg-image: url('../images/repro2.jpg');
+    --overlay-bg-image: url('../images/overlay.jpg');
     
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Inter', sans-serif;
