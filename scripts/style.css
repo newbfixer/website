@@ -13,11 +13,11 @@
     --orange-glow: rgba(255, 136, 0, 0.35);
     
     /* Change 'your-image-filename.jpg' to your actual background image file path */
-    --hero-bg-image: url('../images/bgcover.jpg');
+    --hero-bg-image: url('https://i.ibb.co/gbzsfDX3/bgcover.jpg');
     
-    --custom-bg-image: url('../images/custom.jpg');
-    --repo-bg-image: url('../images/repro2.jpg');
-    --overlay-bg-image: url('../images/overlay.jpg');
+    --custom-bg-image: url('https://i.ibb.co/xKPk6w1p/custom.jpg');
+    --repo-bg-image: url('https://i.ibb.co/Sw1D2918/repro2.jpg');
+    --overlay-bg-image: url('https://i.ibb.co/27dxqL66/overlay.jpg');
     
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Inter', sans-serif;
