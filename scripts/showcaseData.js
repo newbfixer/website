@@ -141,5 +141,17 @@ const showcaseData = [
 				"https://i.ibb.co/8gCQMW7J/shellferrari4.jpg",
 				"https://i.ibb.co/bjc3tKvw/shellferrari5.jpg",
 				"https://i.ibb.co/zVVJCgRT/shellferrari6.jpg"]
+    },
+    {
+        carModel: "Porsche 992 GT3 Cup",
+        type: "Real Life Livery",
+        team: "Erbacher Racing",
+        images: [
+        "https://i.ibb.co/LD8X08xD/real0.jpg",
+				"https://i.ibb.co/prb60CLg/real2.jpg",
+				"https://i.ibb.co/jPL7jvKs/real3.jpg",
+				"https://i.ibb.co/yFY7cVxt/real4.jpg",
+				"https://i.ibb.co/5XbnYZGy/real5.jpg",
+				"https://i.ibb.co/F4NBbzVC/real6.jpg"]
     }
 ];
