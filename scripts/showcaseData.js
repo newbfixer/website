@@ -144,7 +144,7 @@ const showcaseData = [
     },
     {
         carModel: "Porsche 992 GT3 Cup",
-        type: "Real Life Livery",
+        type: "Game to Real Life Livery",
         team: "Erbacher Racing",
         images: [
         "https://i.ibb.co/LD8X08xD/real0.jpg",
