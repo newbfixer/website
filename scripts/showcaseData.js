@@ -95,16 +95,16 @@ const showcaseData = [
 				"https://i.ibb.co/fVJgqKwm/dewalt6.jpg"]
     },
     {
-        carModel: "McLaren 720s GT3 Evo",
+        carModel: "Ferrari 296 GT3",
         type: "Custom Livery",
         team: "Holy Energy",
         images: [
         "https://i.ibb.co/YGs34S3/holyenergy0.jpg",
-				"https://i.ibb.co/BHYsZq05/holyenergy2.jpg",
-				"https://i.ibb.co/cKdQSyzy/holyenergy3.jpg",
-				"https://i.ibb.co/chV8nfZZ/holyenergy4.jpg",
-				"https://i.ibb.co/8gQbqbs6/holyenergy5.jpg",
-				"https://i.ibb.co/G39cGrcB/holyenergy6.jpg"]
+				"https://i.ibb.co/Qv71ndv5/20260909182952-1.jpg",
+				"https://i.ibb.co/cSwVpc5h/20260909183009-1.jpg",
+				"https://i.ibb.co/PShGQnp/20260909183030-1.jpg",
+				"https://i.ibb.co/WvrCY8HM/20260909183056-1.jpg",
+				"https://i.ibb.co/MyYvXngW/20260909183318-1.jpg"]
     },
     {
         carModel: "Ferrari 296 GT3",
