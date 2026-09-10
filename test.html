@@ -44,12 +44,12 @@
         if (typeof window.supabaseInstance === 'undefined') {
             window.supabaseInstance = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         }
-        const supabase = window.supabaseInstance;
+        const supabaseClient = window.supabaseInstance;
 
         // 2. Fetch and display data from Supabase
         async function fetchContacts() {
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('contacts')
                     .select('*')
                     .order('id', { ascending: true });
