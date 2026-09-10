@@ -36,12 +36,15 @@
         </tbody>
     </table>
 
-    <script>
-        // 1. Initialize Supabase with your public Anon/Public key
+<script>
+        // 1. Initialize Supabase safely avoiding duplicate declarations
         const SUPABASE_URL = 'https://fbcnesfwrqqnrvudakhs.supabase.co'; 
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZiY25lc2Z3cnFxbnJ2dWRha2hzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNjM0MTAsImV4cCI6MjEwNDYzOTQxMH0.JTQV1T8nmVgMyupeYuDR4mgPYYq-lo6topGARTO7vx4';
         
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        if (typeof window.supabaseInstance === 'undefined') {
+            window.supabaseInstance = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
+        const supabase = window.supabaseInstance;
 
         // 2. Fetch and display data from Supabase
         async function fetchContacts() {
@@ -82,7 +85,6 @@
             }
         }
 
-        // Simple helper to prevent HTML injection vulnerabilities
         function escapeHtml(str) {
             if (!str) return '';
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
