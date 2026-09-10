@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Contacts on Vercel</title>
+    <!-- Load the Supabase client library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; max-width: 900px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Contacts Directory (Connected to Supabase)</h2>
+    
+    <div id="loading">Loading contacts from database...</div>
+    <div id="errorMsg" class="error"></div>
+
+    <table id="contactsTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Telephone</th>
+            </tr>
+        </thead>
+        <tbody id="contactTableBody">
+            <!-- Rows will be injected here -->
+        </tbody>
+    </table>
+
+    <script>
+        // 1. Initialize Supabase with your public Anon/Public key
+        const SUPABASE_URL = 'https://fbcnesfwrqqnrvudakhs.supabase.co'; 
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZiY25lc2Z3cnFxbnJ2dWRha2hzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNjM0MTAsImV4cCI6MjEwNDYzOTQxMH0.JTQV1T8nmVgMyupeYuDR4mgPYYq-lo6topGARTO7vx4';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 2. Fetch and display data from Supabase
+        async function fetchContacts() {
+            try {
+                const { data, error } = await supabase
+                    .from('contacts')
+                    .select('*')
+                    .order('id', { ascending: true });
+
+                if (error) throw error;
+
+                const tbody = document.getElementById('contactTableBody');
+                tbody.innerHTML = '';
+
+                if (data.length === 0) {
+                    document.getElementById('loading').innerText = 'No contacts found in database.';
+                    return;
+                }
+
+                data.forEach(c => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${c.id}</td>
+                            <td>${escapeHtml(c.name)}</td>
+                            <td>${escapeHtml(c.address)}</td>
+                            <td>${escapeHtml(c.email)}</td>
+                            <td>${escapeHtml(c.telephone)}</td>
+                        </tr>
+                    `;
+                });
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('contactsTable').style.display = 'table';
+
+            } catch (err) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('errorMsg').innerText = 'Error loading data: ' + err.message;
+            }
+        }
+
+        // Simple helper to prevent HTML injection vulnerabilities
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        fetchContacts();
+    </script>
+</body>
+</html>
