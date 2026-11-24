@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d14">
+<title>Newbfixer.com - Resources</title>
+<style>
+:root{
+  --bg:#090d14;--panel:#111925;--panel2:#151f2d;--line:#263447;
+  --text:#edf4fc;--muted:#9eafc3;--cyan:#55d7f2;--gold:#ffc857;
+  --pink:#ff5277;--radius:18px;--shadow:0 18px 45px #0005;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% -10%,#123044 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.6 Inter,Segoe UI,Arial,sans-serif}
+a{color:inherit}
+button,input{font:inherit}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+.topbar{border-bottom:1px solid #ffffff12;background:#090d14d9;backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:900;letter-spacing:.08em}
+.brandmark{display:grid;place-items:center;width:42px;height:42px;background:linear-gradient(135deg,var(--cyan),#2673b8);color:#07111b;font-weight:1000;font-style:italic;clip-path:polygon(0 0,100% 0,82% 100%,0 100%)}
+.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.2em;font-weight:700}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap}
+.navlinks a{font-size:13px;color:var(--muted);text-decoration:none}
+.navlinks a:hover{color:var(--cyan)}
+.hero{padding:76px 0 52px;position:relative;overflow:hidden}
+.hero:after{content:"ACC";position:absolute;right:-25px;top:8px;font-size:clamp(130px,24vw,290px);font-weight:1000;font-style:italic;line-height:1;color:#ffffff05;pointer-events:none}
+.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--cyan);font-size:11px;font-weight:900}
+.eyebrow:before{content:"";height:2px;width:28px;background:var(--cyan)}
+h1{font-size:clamp(42px,7vw,78px);line-height:.98;letter-spacing:-.055em;margin:18px 0;max-width:780px}
+h1 span{color:var(--cyan)}
+.hero p{max-width:650px;color:var(--muted);font-size:17px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-radius:10px;padding:11px 16px;text-decoration:none;font-size:13px;font-weight:850;transition:.2s}
+.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#07111b}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 42px}
+.stat{border:1px solid var(--line);background:#ffffff04;border-radius:14px;padding:18px}
+.stat strong{display:block;font-size:25px;line-height:1.2}
+.stat span{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:48px 0 18px}
+.section-head h2{margin:0;font-size:26px;letter-spacing:-.03em}
+.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 22px}
+.search{flex:1;min-width:220px;position:relative}
+.search input{width:100%;padding:13px 15px 13px 42px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--text);outline:none}
+.search input:focus{border-color:var(--cyan)}
+.search:before{content:"⌕";position:absolute;left:15px;top:5px;font-size:25px;color:var(--muted)}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filter{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:9px 12px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:800}
+.filter.active,.filter:hover{background:#163342;border-color:#347f97;color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{display:flex;flex-direction:column;min-height:235px;border:1px solid var(--line);border-radius:var(--radius);padding:21px;background:linear-gradient(145deg,#151f2d,#0e151f);box-shadow:0 8px 25px #0002;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:#416078}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#55d7f21a;color:var(--cyan);font-size:20px}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;border:1px solid #ffffff1b;border-radius:6px;padding:4px 7px;color:var(--muted)}
+.card h3{font-size:18px;line-height:1.3;margin:18px 0 8px}
+.card p{color:var(--muted);font-size:13px;margin:0 0 18px}
+.card .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.card .btn{padding:9px 11px;font-size:11px}
+.card .btn.primary{background:var(--cyan);color:#06131b}
+.empty{display:none;text-align:center;padding:40px;color:var(--muted);border:1px dashed var(--line);border-radius:14px}
+.resource-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.resource{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);padding:14px 16px;border-radius:12px;text-decoration:none}
+.resource:hover{border-color:var(--cyan)}
+.resource strong{display:block;font-size:13px}
+.resource span{display:block;color:var(--muted);font-size:11px}
+.resource b{color:var(--cyan);font-size:18px}
+.note{border-left:3px solid var(--gold);background:#ffc8570c;padding:14px 17px;color:#d8c9a5;border-radius:0 10px 10px 0;font-size:13px;margin-top:15px}
+
+.community-bar{position:relative;z-index:6;background:linear-gradient(105deg,#122d3c,#111925 58%,#2a2030);border-bottom:1px solid #55d7f244}
+.community-inner{width:min(1160px,calc(100% - 36px));margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 0}
+.community-copy{min-width:0}
+.community-copy strong{display:block;font-size:15px;line-height:1.35;color:var(--text)}
+.community-copy span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.community-actions{display:flex;gap:9px;flex-wrap:wrap;flex-shrink:0}
+.community-actions .btn{white-space:nowrap}
+.community-actions .discord{background:#5865f2;border-color:#5865f2;color:#fff}
+.community-actions .website{border-color:#55d7f2;color:var(--cyan);background:#55d7f20a}
+@media(max-width:650px){.community-inner{width:min(100% - 24px,1160px);align-items:flex-start;flex-direction:column;gap:10px;padding:14px 0}.community-actions{width:100%}.community-actions .btn{flex:1}}
+
+footer{margin-top:70px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:12px}
+footer .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer strong{color:var(--text)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{display:none}.hero{padding-top:55px}}
+@media(max-width:560px){.wrap{width:min(100% - 24px,1160px)}.grid,.resource-list{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:13px}.stat strong{font-size:21px}.stat span{font-size:9px}.hero{padding-top:42px}.section-head{align-items:start;flex-direction:column}.card{min-height:0}}
+</style>
+</head>
+<body>
+<div class="community-bar">
+  <div class="community-inner">
+    <div class="community-copy">
+      <strong>Join the NewbFixer community</strong>
+      <span>Custom livery prices, free livery resources, tutorials &amp; more.</span>
+    </div>
+    <div class="community-actions">
+      <a class="btn discord" href="https://discord.gg/9GZsaQnbdY" target="_blank" rel="noopener">Join our Discord ↗</a>
+      <a class="btn website" href="https://www.newbfixer.com" target="_blank" rel="noopener">NewbFixer.com ↗</a>
+      <a class="btn website" href="https://www.overtake.gg/downloads/authors/newbfixer.2818380/" target="_blank" rel="noopener">My OverTake.gg ↗</a>
+    </div>
+  </div>
+</div>
+
+<main id="top" class="wrap">
+
+  <section id="downloads">
+    <div class="section-head"><div><div class="eyebrow">Resources</div><h2>ACC Downloads & Game Assets</h2></div></div>
+    <div class="grid" id="downloadGrid">
+      <article class="card" data-category="cars" data-search="all 55 cars obj psd car models templates">
+        <div class="card-top"><span class="icon">🏎</span><span class="tag">Car files</span></div>
+        <h3>All 55 ACC Cars — 3D OBJ & PSDs</h3><p>Car model files and Photoshop templates for creating your own designs.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1SwaxtIl-uRCD6TqtDLOpxMMNuVctnYsg/view?usp=sharing">Google Drive</a></div>
+      </article>
+      <article class="card" data-category="paint" data-search="gt3 gradient map pack tutorial 13 cars 26 maps unlimited colors">
+        <div class="card-top"><span class="icon">🌈</span><span class="tag">Paint & gradients</span></div>
+        <h3>GT3 Gradient Map Pack</h3><p>13 GT3 cars, 26 gradient maps and a tutorial for creating dynamic colour effects.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1DcwEP1vMy0dhF1GRG_sSVItYrWbgpFPc/view?usp=sharing">Google Drive</a><a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=m8ll5ZNWGUk">▶ Tutorial</a></div>
+      </article>
+      <article class="card" data-category="paint" data-search="json paint effect templates chrome clear chrome gloss matte metallic satin satin metallic">
+        <div class="card-top"><span class="icon">✨</span><span class="tag">Paint effects</span></div>
+        <h3>.JSON Paint Effect Templates</h3><p>Presets for Chrome, Clear Chrome, Gloss, Matte, Metallic, Satin and Satin Metallic.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1p3eienUcHQdPe-vrCPFmcCy9Lao8rKGl/">Google Drive</a></div>
+      </article>
+      <article class="card" data-category="tools" data-search="acc file extractor umodel readme encryption key instructions">
+        <div class="card-top"><span class="icon">🛠</span><span class="tag">Utility</span></div>
+        <h3>ACC File Extractor — UModel</h3><p>File extraction utility with a readme containing the encryption key and instructions.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1oLg_WbR9k3M4TVI5lHXaUuY6UGsw1xey/">Google Drive</a></div>
+      </article>
+      <article class="card" data-category="logos" data-search="400 8k racing sponsor logos decals">
+        <div class="card-top"><span class="icon">✳</span><span class="tag">Logos & decals</span></div>
+        <h3>400+ 8K Racing & Sponsor Logos</h3><p>A large collection of high-resolution logos for race liveries and sponsor layouts.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1JOc2pVaAl8Un7_WhbTP-Ry146xebdAU6/view?usp=sharing">Google Drive</a></div>
+      </article>
+      <article class="card" data-category="logos" data-search="high quality logo fonts typeface racing">
+        <div class="card-top"><span class="icon">Aa</span><span class="tag">Typography</span></div>
+        <h3>High-Quality Logo Fonts</h3><p>Useful fonts for motorsport branding, number panels and sponsor-style graphics.</p>
+        <div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1kG85r7IQBrKSLpHU1oW-5BBKob3LgjwA/">Google Drive</a></div>
+      </article>
+    </div>
+   </section>
+   
+   <section id="websites">
+    <div class="section-head"><div><div class="eyebrow">Find your inspiration</div><h2>Logo, decal & font websites</h2><p>External resources for sourcing graphics and typography.</p></div></div>
+    <div class="resource-list">
+      <a class="resource" href="https://www.brandsoftheworld.com/" target="_blank" rel="noopener"><span><strong>Brands of the World</strong><span>Brand logos and vector artwork</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.logolynx.com/" target="_blank" rel="noopener"><span><strong>LogoLynx</strong><span>Searchable logo inspiration</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.dafont.com/theme.php?cat=717" target="_blank" rel="noopener"><span><strong>DaFont — Techno</strong><span>Display and techno-style fonts</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.logotypes101.com/" target="_blank" rel="noopener"><span><strong>Logotypes101</strong><span>Logo reference library</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.freepik.com/" target="_blank" rel="noopener"><span><strong>Freepik</strong><span>Graphics, vectors and design assets</span></span><b>↗</b></a>
+      <a class="resource" href="https://logodix.com/" target="_blank" rel="noopener"><span><strong>LogoDix</strong><span>Logo downloads and references</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.vecteezy.com/" target="_blank" rel="noopener"><span><strong>Vecteezy</strong><span>Vectors and stock graphics</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.nicepng.com/" target="_blank" rel="noopener"><span><strong>NicePNG</strong><span>PNG graphics and cutouts</span></span><b>↗</b></a>
+    </div>
+  </section>
+  
+   <section id="software">
+    <div class="section-head"><div><div class="eyebrow">Tools of the trade</div><h2>Creative software</h2><p>Useful tools for building, painting and preparing liveries.</p></div></div>
+    <div class="resource-list">
+      <a class="resource" href="https://www.gimp.org/" target="_blank" rel="noopener"><span><strong>GIMP</strong><span>Free image editing software</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.blender.org/" target="_blank" rel="noopener"><span><strong>Blender</strong><span>3D modelling and rendering</span></span><b>↗</b></a>
+      <a class="resource" href="https://armorpaint.org/" target="_blank" rel="noopener"><span><strong>ArmorPaint - Recommended! $19 dollars one off payment!</strong><span>3D texture Painting (like mudbox)</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.adobe.com/uk/products/photoshop/landpa.html" target="_blank" rel="noopener"><span><strong>Adobe Photoshop - Free Trial</strong><span>Professional raster graphics editing</span></span><b>↗</b></a>
+      <a class="resource" href="https://www.autodesk.com/uk/products/mudbox/free-trial" target="_blank" rel="noopener"><span><strong>Autodesk Mudbox - 30 Day Free Trial</strong><span>3D and design tools</span></span><b>↗</b></a>
+    </div>
+  </section>
+
+  <section id="tutorials">
+    <div class="section-head"><div><div class="eyebrow">3rd Party Recommended</div><h2>Video tutorials</h2><p>Guides for creating ACC Liveries in alternative software packages.</p></div></div>
+    <div class="grid">
+    	
+    	<article class="card" data-category="tutorial" data-search="Blender ACC Tutorial"><div class="card-top"><span class="icon">▶</span><span class="tag">Blender</span></div><h3>ACC - making a basic livery with blender (simple how to)</h3><p>Get started with making ACC Liveries with blender.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GnIt9_wnKFQ">Watch video ↗</a></div></article>
+    		
+    		
+    		      <article class="card" data-category="tutorial" data-search="blender 3d livery tutorial acc"><div class="card-top"><span class="icon">▶</span><span class="tag">Blender</span></div><h3>3D Blender Livery Tutorial for ACC</h3><p>Learn a Blender-based workflow for ACC livery creation.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=u8ANVufeHDs">Watch video ↗</a></div></article>
+      	
+      	
+      <article class="card" data-category="tutorial" data-search="blender basics gradient materials color ramp node"><div class="card-top"><span class="icon">▶</span><span class="tag">Blender</span></div><h3>Gradient Materials — Color Ramp</h3><p>Understand gradient materials and the Color Ramp node in blender.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ViqfL0LOwUM">Watch video ↗</a></div></article>
+    		
+    	<article class="card" data-category="tutorial" data-search="
+Create custom liveries in acc using gimp"><div class="card-top"><span class="icon">▶</span><span class="tag">GIMP</span></div><h3>Create your own custom liveries in Acc using Gimp</h3><p>Get started with GIMP and learn the basics of image editing.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kLOAfOVrTCs">Watch video ↗</a></div></article>
+    	
+    	
+      <article class="card" data-category="tutorial" data-search="gimp 2025 beginner tutorial"><div class="card-top"><span class="icon">▶</span><span class="tag">GIMP</span></div><h3>GIMP — Beginner Tutorial</h3><p>Get started with GIMP and learn the basics of image editing.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KwlMeakc9Zo">Watch video ↗</a></div></article>
+      	
+      	
+    	<article class="card" data-category="tutorial" data-search="all 39 gimp tools explained"><div class="card-top"><span class="icon">▶</span><span class="tag">GIMP</span></div><h3>All 39 GIMP Tools Explained</h3><p>A practical overview of GIMP's main tools.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_z9cFpwak9c">Watch video ↗</a></div></article>
+    		
+    		
+      <article class="card" data-category="tutorial" data-search="gimp 2025 beginner tutorial"><div class="card-top"><span class="icon">▶</span><span class="tag">GIMP</span></div><h3>GIMP 3.0 12 Hour Full Course</h3><p>Learn Everything about Gimp version 3.0.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C7dQfk6GMEM">Watch video ↗</a></div></article>
+      	
+      	
+
+      	
+      	
+      <article class="card" data-category="tutorial" data-search="armorpaint create acc liveries"><div class="card-top"><span class="icon">▶</span><span class="tag">ArmorPaint</span></div><h3>Using ArmorPaint to Create ACC Liveries</h3><p>A guide to painting liveries with ArmorPaint.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mAQFVKhsUWc">Watch video ↗</a></div></article>
+      	
+      	
+      <article class="card" data-category="tutorial" data-search="comprehensive armorpaint acc gradient color ramp"><div class="card-top"><span class="icon">▶</span><span class="tag">ArmorPaint</span></div><h3>ArmorPaint Gradient Color Ramp</h3><p>A more comprehensive walkthrough of gradient colour ramp techniques.</p><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qSJjqWaGAAk">Watch video ↗</a></div></article>
+      
+    </div>
+  </section>
+
+  
+
+ 
+  
+  
+</main>
+<footer><div class="wrap foot"><span><strong>NewbFixer</strong> · Tutorial Resource Collection</span><span>Stay Creative!</span></div></footer>
+<script>
+(() => {
+  const search = document.getElementById('searchInput');
+  const filters = [...document.querySelectorAll('.filter')];
+  const cards = [...document.querySelectorAll('#downloadGrid .card')];
+  const empty = document.getElementById('emptyState');
+  let active = 'all';
+  function update() {
+    const term = search.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const categoryMatch = active === 'all' || card.dataset.category === active;
+      const textMatch = (card.dataset.search + ' ' + card.innerText).toLowerCase().includes(term);
+      card.hidden = !(categoryMatch && textMatch);
+      if (!card.hidden) visible++;
+    });
+    empty.style.display = visible ? 'none' : 'block';
+  }
+  search.addEventListener('input', update);
+  filters.forEach(btn => btn.addEventListener('click', () => {
+    active = btn.dataset.filter;
+    filters.forEach(item => item.classList.toggle('active', item === btn));
+    update();
+  }));
+})();
+</script>
+</body>
+</html>
